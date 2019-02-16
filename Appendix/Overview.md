@@ -1,6 +1,6 @@
-Appendix: A parsing strategy  
-In this appendix we describe some features of the parsing strategy used in the CommonMark reference implementations.  
-OverviewParsing has two phases:  
+### Overview
+
+Parsing has two phases:  
 
 1.  In the first phase, lines of input are consumed and the block structure of the document—its division into paragraphs, block quotes, list items, and so on—is constructed. Text is assigned to these blocks but not parsed. Link reference definitions are parsed and a map of links is constructed.
 2.  In the second phase, the raw text contents of paragraphs and headings are parsed into sequences of Markdown inline elements (strings, code spans, links, emphasis, and so on), using the map of link references constructed in phase 1.

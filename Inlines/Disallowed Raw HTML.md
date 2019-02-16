@@ -1,4 +1,6 @@
-### Disallowed Raw HTML (extension)GFM enables the `tagfilter` extension, where the following HTML tags will be filtered when rendering HTML output:  
+### Disallowed Raw HTML (extension)
+
+GFM enables the `tagfilter` extension, where the following HTML tags will be filtered when rendering HTML output:  
 
 *   `<title>`
 *   `<textarea>`

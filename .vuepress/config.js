@@ -1,4 +1,5 @@
 module.exports = {
+  extraWatchFiles: [require('path').resolve(__dirname, './nav/en.js')],
   locales: {
     '/': {
       lang: 'en-US',
@@ -13,12 +14,12 @@ module.exports = {
   },
   themeConfig: {
     locales: {
-      '/en/': {
+      '/': {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
-        // nav: require('./nav/en'),
+        nav: require('./nav/en.js'),
         // sidebar: require('./sidebar/en'),
       },
       '/cn/': {

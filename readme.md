@@ -26,7 +26,7 @@ This formal specification is based on the [CommonMark Spec](http://spec.commonm
     *   [4.7 Link reference definitions](/Leaf%20blocks/Link%20reference%20definitions.html)
     *   [4.8 Paragraphs](/Leaf%20blocks/Paragraphs.html)
     *   [4.9 Blank lines](/Leaf%20blocks/Blank%20lines.html)
-    *   [4.10 Tables (extension)](/Leaf%20blocks/Tables%20(extension).html)
+    *   [4.10 Tables (extension)](/Leaf%20blocks/Tables%20extension.html)
 *   [5. Container blocks](/Container%20blocks/)  
     *   [5.1 Block quotes](/Container%20blocks/Block%20quotes.html)
     *   [5.2 List items](/Container%20blocks/List%20items.html)

@@ -1,11 +1,11 @@
 ### Block quotes
 
-一个[块引用标记](https://github.github.com/gfm/#block-quote-marker) 块引用标记由0-3个初始缩进空格组成，另外加上（a）字符>与一个空格，或（b）单个字符>后面没有空格。
-[引用块](https://github.github.com/gfm/#block-quotes)由以下原则定义:  
+A [block quote marker](https://github.github.com/gfm/#block-quote-marker) consists of 0-3 spaces of initial indent, plus (a) the character `>` together with a following space, or (b) a single character `>` not followed by a space.  
+The following rules define [block quotes](https://github.github.com/gfm/#block-quotes):  
 
-1.  **一般原则** 如果许多行(Ls)构成块(Bs)的序列，那么将[块引用标记](https://github.github.com/gfm/#block-quote-marker)添加到Ls中每行的开头，会是一个包含Bs的[块引用](https://github.github.com/gfm/#block-quotes)
-2.  **懒惰原则** 如果许多行(Ls)构成一个含有内容的[引用块](https://github.github.com/gfm/#block-quotes) (Bs)，那么将一行或多行[块引用标记](https://github.github.com/gfm/#block-quote-marker)紧邻[非空字符](https://github.github.com/gfm/#non-whitespace-character)为[段落延续文本](https://github.github.com/gfm/#paragraph-continuation-text)的行中的初始[块引用标记](https://github.github.com/gfm/#block-quote-marker)删除的结果是一个将Bs作为其内容的[引用块](https://github.github.com/gfm/#block-quotes)。[段落延续文本](https://github.github.com/gfm/#paragraph-continuation-text)被解析为段落的部分内容，但并不会出现在段落的开头
-3.  **持续性** 文档中不能在同一行中出现两个[引用块](https://github.github.com/gfm/#block-quotes)，除非二者中间有一行[空行](https://github.github.com/gfm/#blank-line)
+1.  **Basic case.** If a string of lines _Ls_ constitute a sequence of blocks _Bs_, then the result of prepending a [block quote marker](https://github.github.com/gfm/#block-quote-marker) to the beginning of each line in _Ls_ is a [block quote](https://github.github.com/gfm/#block-quotes) containing _Bs_.
+2.  **Laziness.** If a string of lines _Ls_ constitute a [block quote](https://github.github.com/gfm/#block-quotes) with contents _Bs_, then the result of deleting the initial [block quote marker](https://github.github.com/gfm/#block-quote-marker) from one or more lines in which the next [non-whitespace character](https://github.github.com/gfm/#non-whitespace-character) after the [block quote marker](https://github.github.com/gfm/#block-quote-marker) is [paragraph continuation text](https://github.github.com/gfm/#paragraph-continuation-text) is a block quote with _Bs_ as its content. [Paragraph continuation text](https://github.github.com/gfm/#paragraph-continuation-text) is text that will be parsed as part of the content of a paragraph, but does not occur at the beginning of the paragraph.
+3.  **Consecutiveness.** A document cannot contain two [block quotes](https://github.github.com/gfm/#block-quotes) in a row unless there is a [blank line](https://github.github.com/gfm/#blank-line)between them.
 
 Nothing else counts as a [block quote](https://github.github.com/gfm/#block-quotes).  
 Here is a simple example:  

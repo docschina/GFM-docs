@@ -8,7 +8,8 @@
     "dev": "vuepress dev",
     "start": "npm run dev",
     "build": "vuepress build -d ./dist",
-    "deploy": "sh ./scripts/deploy.sh"
+    "deploy": "sh ./scripts/deploy.sh",
+    "deploy:LinFeng1997": "sh deploy.sh"
   },
   "dependencies": {
     "vuepress": "^1.0.0-alpha.37"

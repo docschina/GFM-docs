@@ -1,15 +1,15 @@
 {
   "name": "gfm",
   "version": "1.0.0",
-  "description": "",
+  "author": "LinFeng1997",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev",
-    "build": "vuepress build"
+    "start": "npm run dev",
+    "build": "vuepress build -d ./dist",
+    "deploy": "sh ./scripts/deploy.sh"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "vuepress": "^1.0.0-alpha.37"
   }

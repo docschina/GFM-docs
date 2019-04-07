@@ -61,4 +61,4 @@ typings/
 .next
 
 # avoid local vcs
-/.idea/vcs.xml
+.idea

@@ -1,17 +1,10 @@
 module.exports = {
+  port: 3200,
   base:'/GFM-DOC/',
   extraWatchFiles: [require('path').resolve(__dirname, './nav')],
   locales: {
-    '/': {
-      lang: 'en-US',
-      title: 'GFM',
-      description: 'GitHub Flavored Markdown Spec'
-    },
-    '/cn/': {
-      lang: 'zh-CN',
-      title: 'GFM',
-      description: 'GitHub Flavored Markdown Spec'
-    }
+    '/': {lang: 'en-US', title: 'GFM', description: 'GitHub Flavored Markdown Spec'},
+    '/cn/': {lang: 'zh-CN', title: 'GFM', description: 'GitHub Flavored Markdown Spec'}
   },
   themeConfig: {
     locales: {

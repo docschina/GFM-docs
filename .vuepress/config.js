@@ -1,4 +1,5 @@
 module.exports = {
+  base:'/GFM-DOC/',
   extraWatchFiles: [require('path').resolve(__dirname, './nav')],
   locales: {
     '/': {

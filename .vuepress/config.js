@@ -1,10 +1,10 @@
 module.exports = {
   port: 3200,
-  base:'/GFM-DOC/',
+  // base:'/GFM-DOC/',
   extraWatchFiles: [require('path').resolve(__dirname, './nav')],
   locales: {
     '/': {lang: 'en-US', title: 'GFM', description: 'GitHub Flavored Markdown Spec'},
-    '/cn/': {lang: 'zh-CN', title: 'GFM', description: 'GitHub Flavored Markdown Spec'}
+    '/zh-hans/': {lang: 'zh-hans', title: 'GFM', description: 'GitHub Flavored Markdown Spec'}
   },
   themeConfig: {
     locales: {
@@ -16,7 +16,7 @@ module.exports = {
         nav: require('./nav/en.js'),
         // sidebar: require('./sidebar/en'),
       },
-      '/cn/': {
+      '/zh-hans/': {
         label: '简体中文',
         selectText: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
@@ -26,4 +26,9 @@ module.exports = {
       }
     }
   },
+  head: [
+    ['script', {
+      src: `/js/baidu.js`,
+    }],
+  ],
 }

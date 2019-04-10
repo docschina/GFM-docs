@@ -63,4 +63,5 @@ module.exports = [
       {"link": "/Appendix/inline%20structure.html", "text": "inline structure"},
     ]
   },
+  {"link": "https://docschina.org/", "text": "docschina"},
 ]

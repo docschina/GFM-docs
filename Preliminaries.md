@@ -28,7 +28,11 @@ A [space](https://github.github.com/gfm/#space) is `U+0020`.
 
 A [non-whitespace character](https://github.github.com/gfm/#non-whitespace-character) is any character that is not a [whitespace character](https://github.github.com/gfm/#whitespace-character).  
 
-An [ASCII punctuation character](https://github.github.com/gfm/#ascii-punctuation-character) is `!`, `"`, `#`, `$`, `%`, `&`, `'`, `(`, `)`, `*`, `+`, `,`, `-`, `.`, `/`, `:`, `;`, `<`, `=`, `>`, `?`, `@`, `[`, `\`, `]`, `^`, `_`, `` ` ``, `{`, `|`, `}`, or `~`.  
+An [ASCII punctuation character](https://github.github.com/gfm/#ascii-punctuation-character) is `!`, `"`, `#`, `$`, `%`, `&`, `'`, `(`, `)`,`*`, `+`, `,`, `-`, `.`, `/` (U+0021–2F), 
+`:`, `;`, `<`, `=`, `>`, `?`, `@` (U+003A–0040),
+`[`, `\`, `]`, `^`, `_`, `` ` `` (U+005B–0060), 
+`{`, `|`, `}`, or `~` (U+007B–007E).
+
 A [punctuation character](https://github.github.com/gfm/#punctuation-character) is an [ASCII punctuation character](https://github.github.com/gfm/#ascii-punctuation-character) or anything in the general Unicode categories`Pc`, `Pd`, `Pe`, `Pf`, `Pi`, `Po`, or `Ps`.  
 
 ### 2. Tabs

@@ -59,7 +59,7 @@ Contents are parsed as inlines:
 
     <h1>foo <em>bar</em> *baz*</h1>
 
-Leading and trailing blanks are ignored in parsing inline content:  
+Leading and trailing whitespace is ignored in parsing inline content:    
 [Example 37](https://github.github.com/gfm/#example-37)  
 
     #                  foo

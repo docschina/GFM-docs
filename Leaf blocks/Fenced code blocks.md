@@ -317,7 +317,12 @@ Other blocks can also occur before and after fenced code blocks without an inter
     </code></pre>
     <h1>baz</h1>
 
-An [info string](https://github.github.com/gfm/#info-string) can be provided after the opening code fence. Opening and closing spaces will be stripped, and the first word, prefixed with `language-`, is used as the value for the `class` attribute of the `code`element within the enclosing `pre` element.  
+An [info string](https://github.github.com/gfm/#info-string) can be provided after the opening code fence.
+Although this spec doesn't mandate any particular treatment of
+the info string, the first word is typically used to specify
+the language of the code block. In HTML output, the language is
+normally indicated by adding a class to the `code` element consisting
+of `language-` followed by the language name.    
 [Example 111](https://github.github.com/gfm/#example-111)  
 
     ```ruby
@@ -358,6 +363,7 @@ An [info string](https://github.github.com/gfm/#info-string) can be provided a
     <pre><code class="language-;"></code></pre>
 
 [Info strings](https://github.github.com/gfm/#info-string) for backtick code blocks cannot contain backticks:  
+
 [Example 114](https://github.github.com/gfm/#example-114)  
 
     ``` aa ```
@@ -367,6 +373,21 @@ An [info string](https://github.github.com/gfm/#info-string) can be provided a
 
     <p><code>aa</code>
     foo</p>
+
+
+[Info strings](https://github.github.com/gfm/#info-string) for tilde code blocks can contain backticks and tildes:     
+
+Example 114.5
+``` example
+~~~ aa ``` ~~~
+foo
+~~~
+```
+
+```
+<pre><code class="language-aa">foo
+</code></pre>
+```
 
 Closing code fences cannot have [info strings](https://github.github.com/gfm/#info-string):  
 [Example 115](https://github.github.com/gfm/#example-115)  

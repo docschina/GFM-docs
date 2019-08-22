@@ -21,7 +21,7 @@ There are seven kinds of [HTML block](https://github.github.com/gfm/#html-block
     
 6.  **Start condition:** line begins the string `<` or `</` followed by one of the strings (case-insensitive) `address`, `article`, `aside`, `base`, `basefont`, `blockquote`, `body`, `caption`, `center`, `col`, `colgroup`, `dd`, `details`, `dialog`, `dir`, `div`, `dl`, `dt`, `fieldset`, `figcaption`, `figure`, `footer`, `form`, `frame`, `frameset`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `head`, `header`, `hr`, `html`, `iframe`, `legend`, `li`, `link`, `main`, `menu`, `menuitem`, `nav`, `noframes`, `ol`, `optgroup`, `option`, `p`, `param`, `section`, `source`, `summary`, `table`, `tbody`, `td`, `tfoot`, `th`, `thead`, `title`, `tr`, `track`, `ul`, followed by [whitespace](https://github.github.com/gfm/#whitespace), the end of the line, the string `>`, or the string `/>`.  
     **End condition:** line is followed by a [blank line](https://github.github.com/gfm/#blank-line).
-7.  **Start condition:** line begins with a complete [open tag](https://github.github.com/gfm/#open-tag) or [closing tag](https://github.github.com/gfm/#closing-tag) (with any [tag name](https://github.github.com/gfm/#tag-name) other than `script`, `style`, or `pre`) followed only by [whitespace](https://github.github.com/gfm/#whitespace) or the end of the line.  
+7.  **Start condition:** line begins with a complete [open tag](https://github.github.com/gfm/#open-tag) or [closing tag](https://github.github.com/gfm/#closing-tag) (with any [tag name](https://github.github.com/gfm/#tag-name) other than `script`, `style`, or `pre`) or a complete closing tag,followed only by [whitespace](https://github.github.com/gfm/#whitespace) or the end of the line.  
     **End condition:** line is followed by a [blank line](https://github.github.com/gfm/#blank-line).
 
 HTML blocks continue until they are closed by their appropriate [end condition](https://github.github.com/gfm/#end-condition), or the last line of the document or other [container block](https://github.github.com/gfm/#container-block). This means any HTML **within an HTML block** that might otherwise be recognised as a start condition will be ignored by the parser and passed through as-is, without changing the parser’s state.  
@@ -559,7 +559,7 @@ An HTML block of types 1–6 can interrupt a paragraph, and need not be preceded
     bar
     </div>
 
-However, a following blank line is needed, except at the end of a document, and except for blocks of types 1–5, [above](https://github.github.com/gfm/#html-block):  
+However, a following blank line is needed, except at the end of a document, and except for blocks of types 1–5, [above](https://github.github.com/gfm/#html-block) HTML block:  
 [Example 153](https://github.github.com/gfm/#example-153)  
 
     <div>
@@ -678,4 +678,4 @@ There are problems, however, if the inner tags are indented _and_ separated by
       </tr>
     </table>
 
-Fortunately, blank lines are usually not necessary and can be deleted. The exception is inside `<pre>` tags, but as described [above](https://github.github.com/gfm/#html-blocks), raw HTML blocks starting with `<pre>` _can_ contain blank lines.  
+Fortunately, blank lines are usually not necessary and can be deleted. The exception is inside `<pre>` tags, but as described [above](https://github.github.com/gfm/#html-blocks) HTML blocks, raw HTML blocks starting with `<pre>` _can_ contain blank lines.  

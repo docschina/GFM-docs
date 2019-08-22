@@ -35,20 +35,22 @@ The content of the header may span more than one line:
     baz</em></h1>
 
 
-[Example 52.5](https://github.github.com/gfm/#example-52.5)  
+[Example 51.5](https://github.github.com/gfm/#example-52.5)  
 The contents are the result of parsing the headings's raw
 content as inlines.  The heading's raw content is formed by
 concatenating the lines and removing initial and final
 whitespace.
 
-```````````````````````````````` example
+```
   Foo *bar
 baz*→
 ====
-.
+```
+
+```
 <h1>Foo <em>bar
 baz</em></h1>
-````````````````````````````````
+```
 
 The underlining can be any length:  
 [Example 52](https://github.github.com/gfm/#example-52)  

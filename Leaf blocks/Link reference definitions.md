@@ -104,6 +104,37 @@ The link destination may not be omitted:
     <p>[foo]:</p>
     <p>[foo]</p>
 
+
+However, an empty link destination may be specified using
+angle brackets:    
+
+Example 166.5    
+```md
+[foo]: <>
+
+[foo]
+```
+
+```html
+<p><a href="">foo</a></p>
+```
+
+The title must be separated from the link destination by
+whitespace:
+
+Example 166.75
+
+```md
+[foo]: <bar>(baz)
+
+[foo]
+```
+
+```html
+<p>[foo]: <bar>(baz)</p>
+<p>[foo]</p>
+```
+
 Both title and destination can contain backslash escapes and literal backslashes:  
 [Example 167](https://github.github.com/gfm/#example-167)  
 
@@ -253,6 +284,31 @@ However, it can directly follow other block elements, such as headings and thema
     <p>bar</p>
     </blockquote>
 
+Example 179.5   
+```md
+[foo]: /url
+bar
+===
+[foo]
+```
+
+```html
+<h1>bar</h1>
+<p><a href="/url">foo</a></p>
+```
+
+Example 179.75   
+```md
+[foo]: /url
+===
+[foo]
+```
+
+```html
+<p>===
+<a href="/url">foo</a></p>
+```
+
 Several [link reference definitions](https://github.github.com/gfm/#link-reference-definition) can occur one after another, without intervening blank lines.  
 [Example 180](https://github.github.com/gfm/#example-180)  
 
@@ -283,3 +339,13 @@ Several [link reference definitions](https://github.github.com/gfm/#link-refere
     <p><a href="/url">foo</a></p>
     <blockquote>
     </blockquote>
+
+Whether something is a [link reference definition] is
+independent of whether the link reference it defines is
+used in the document.  Thus, for example, the following
+document contains just a link reference definition, and
+no visible content:
+
+```````````````````````````````` md
+[foo]: /url
+````````````````````````````````

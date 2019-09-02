@@ -10,15 +10,15 @@ A [link text](https://github.github.com/gfm/#link-text) consists of a sequence
 
 A [link destination](https://github.github.com/gfm/#link-destination) consists of either  
 
-*   a sequence of zero or more characters between an opening `<` and a closing `>` that contains no line breaks or unescaped `<` or `>` characters, or
-*   a nonempty sequence of characters that does not include ASCII space or control characters, and includes parentheses only if (a) they are backslash-escaped or (b) they are part of a balanced pair of unescaped parentheses. (Implementations may impose limits on parentheses nesting to avoid performance issues, but at least three levels of nesting should be supported.)
+*   a sequence of zero or more characters between an opening `<` and a closing `>` that contains no spaces, line breaks, or unescaped `<` or `>` characters, or
+*   a nonempty sequence of characters that does not start with `<`, does not include ASCII space or control characters, and includes parentheses only if (a) they are backslash-escaped or (b) they are part of a balanced pair of unescaped parentheses.(Implementations may impose limits on parentheses nesting to avoid performance issues, but at least three levels of nesting should be supported.)
 
 A [link title](https://github.github.com/gfm/#link-title) consists of either  
 
 *   a sequence of zero or more characters between straight double-quote characters (`"`), including a `"`character only if it is backslash-escaped, or
 *   a sequence of zero or more characters between straight single-quote characters (`'`), including a `'`character only if it is backslash-escaped, or
-*   a sequence of zero or more characters between matching parentheses (`(...)`), including a `)`character only if it is backslash-escaped.
-
+*   a sequence of zero or more characters between matching parentheses (`(...)`), including a `(` or `)` character only if it is backslash-escaped.
+                                                 
 Although [link titles](https://github.github.com/gfm/#link-title) may span multiple lines, they may not contain a [blank line](https://github.github.com/gfm/#blank-line).  
 An [inline link](https://github.github.com/gfm/#inline-link) consists of a [link text](https://github.github.com/gfm/#link-text) followed immediately by a left parenthesis `(`, optional [whitespace](https://github.github.com/gfm/#whitespace), an optional [link destination](https://github.github.com/gfm/#link-destination), an optional [link title](https://github.github.com/gfm/#link-title) separated from the link destination by [whitespace](https://github.github.com/gfm/#whitespace), optional [whitespace](https://github.github.com/gfm/#whitespace), and a right parenthesis `)`. The link’s text consists of the inlines contained in the [link text](https://github.github.com/gfm/#link-text)(excluding the enclosing square brackets). The link’s URI consists of the link destination, excluding enclosing `<...>` if present, with backslash-escapes in effect as described above. The link’s title consists of the link title, excluding its enclosing delimiters, with backslash-escapes in effect as described above.  
 Here is a simple inline link:  
@@ -93,6 +93,40 @@ The destination cannot contain line breaks, even if enclosed in pointy brackets:
 
     <p>[link](<foo
     bar>)</p>
+
+The destination can contain `)` if it is enclosed in pointy brackets:
+
+````
+[a](<b)c>)
+````
+
+````
+<p><a href="b)c">a</a></p>
+````
+
+Pointy brackets that enclose links must be unescaped:
+
+````
+[link](<foo\>)
+````
+
+````
+<p>[link](&lt;foo&gt;)</p>
+````
+
+These are not links, because the opening pointy bracket is not matched properly:
+
+````
+[a](<b)c
+[a](<b)c>
+[a](<b>c)
+````
+
+````
+<p>[a](&lt;b)c
+[a](&lt;b)c&gt;
+[a](<b>c)</p>
+````
 
 Parentheses inside the link destination may be escaped:  
 [Example 482](https://github.github.com/gfm/#example-482)  

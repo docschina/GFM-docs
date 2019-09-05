@@ -51,10 +51,10 @@ module.exports = [
 
   {
     "text": "附录", items: [
-          {"link": "/Appendix/", "text": "Appendix: A parsing strategy"},
-          {"link": "/Appendix/Overview.html", "text": "Overview"},
-          {"link": "/Appendix/block%20structure.html", "text": "block structure"},
-          {"link": "/Appendix/inline%20structure.html", "text": "inline structure"},
+          {"link": "/zh-hans/附录/", "text": "附录：一个解析策略"},
+          {"link": "/zh-hans/附录/概述.html", "text": "概述"},
+          {"link": "/zh-hans/附录/块结构.html", "text": "块结构"},
+          {"link": "/zh-hans/附录/内联结构.html", "text": "内联结构"},
     ]
   },
   {"link": "https://docschina.org/", "text": "印记中文"},

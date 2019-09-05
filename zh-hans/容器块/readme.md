@@ -5,4 +5,4 @@
 
 > 如果 X 是一个块序列，那么通过一定的方式转换之后，会变成包含这些块的另一种形式 Y 。
 
-因此，我们通过 X 包含的内容 _生成_ 的结果来判断其是块引用还是列表项。这应该足以定义语法，尽管它没有给出 _解析_ 这些结构的方法。（有一个方法在章节 [A parsing strategy](https://github.github.com/gfm/#appendix-a-parsing-strategy) 中提及。）
+因此，我们通过 X 包含的内容 _生成_ 的结果来判断其是块引用还是列表项。这应该足以定义语法，尽管它没有给出 _解析_ 这些结构的方法。（有一个方法在章节[一个解析策略](https://github.github.com/gfm/#appendix-a-parsing-strategy) 中提及。）

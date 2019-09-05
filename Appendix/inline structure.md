@@ -50,7 +50,7 @@ _look for link or image_Starting at the top of the delimiter stack, we look back
 
 _process emphasis_Parameter `stack_bottom` sets a lower bound to how far we descend in the [delimiter stack](https://github.github.com/gfm/#delimiter-stack). If it is NULL, we can go all the way to the bottom. Otherwise, we stop before visiting `stack_bottom`.  
 Let `current_position` point to the element on the [delimiter stack](https://github.github.com/gfm/#delimiter-stack) just above `stack_bottom` (or the first element if `stack_bottom` is NULL).  
-We keep track of the `openers_bottom` for each delimiter type (`*`, `_`). Initialize this to `stack_bottom`.  
+We keep track of the `openers_bottom` for each delimiter type (`*`, `_`). and each length of the closing delimiter run (modulo 3). Initialize this to `stack_bottom`.  
 Then we repeat the following until we run out of potential closers:  
 
 *   Move `current_position` forward in the delimiter stack (if needed) until we find the first potential closer with delimiter `*` or `_`. (This will be the potential closer closest to the beginning of the input – the first one in parse order.)
@@ -60,7 +60,7 @@ Then we repeat the following until we run out of potential closers:
     *   Insert an emph or strong emph node accordingly, after the text node corresponding to the opener.
     *   Remove any delimiters between the opener and closer from the delimiter stack.
     *   Remove 1 (for regular emph) or 2 (for strong emph) delimiters from the opening and closing text nodes. If they become empty as a result, remove them and remove the corresponding element of the delimiter stack. If the closing node is removed, reset `current_position` to the next element in the stack.
-*   If none in found:  
+*   If none is found:  
     *   Set `openers_bottom` to the element before `current_position`. (We know that there are no openers for this kind of closer up to and including this point, so this puts a lower bound on future searches.)
     *   If the closer at `current_position` is not a potential opener, remove it from the delimiter stack (since we know it can’t be a closer either).
     *   Advance `current_position` to the next element in the stack.

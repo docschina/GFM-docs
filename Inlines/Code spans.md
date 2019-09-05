@@ -1,17 +1,22 @@
 ### Code spans
 
 A [backtick string](https://github.github.com/gfm/#backtick-string) is a string of one or more backtick characters (`` ` ``) that is neither preceded nor followed by a backtick.  
-A [code span](https://github.github.com/gfm/#code-span) begins with a backtick string and ends with a backtick string of equal length. The contents of the code span are the characters between the two backtick strings, with leading and trailing spaces and [line endings](https://github.github.com/gfm/#line-ending) removed, and [whitespace](https://github.github.com/gfm/#whitespace) collapsed to single spaces.  
+A code span(@) begins with a backtick string and ends with a backtick string of equal length.  The contents of the code span are the characters between the two backtick strings, normalized in the following ways:
+
+- First, line endings are converted to spaces.
+- If the resulting string both begins *and* ends with a space character, but does not consist entirely of space characters, a single space character is removed from the front and back.  This allows you to include code that begins or ends with backtick characters, which must be separated by whitespace from the opening or closing backtick strings.
 This is a simple code span:  
+
 [Example 326](https://github.github.com/gfm/#example-326)  
 
     `foo`
-
    
 
     <p><code>foo</code></p>
 
-Here two backticks are used, because the code contains a backtick. This example also illustrates stripping of leading and trailing spaces:  
+Here two backticks are used, because the code contains a backtick.
+This example also illustrates stripping of a single leading and
+trailing space:    
 [Example 327](https://github.github.com/gfm/#example-327)  
 
     `` foo ` bar  ``
@@ -29,45 +34,74 @@ This example shows the motivation for stripping leading and trailing spaces:
 
     <p><code>``</code></p>
 
+Note that only *one* space is stripped:
+
+````
+`  ``  `
+````
+
+````
+<p><code> `` </code></p>
+````
+
+Only [spaces], and not [unicode whitespace] in general, are stripped in this way:
+
+````
+` b `
+````
+
+````
+<p><code> b </code></p>
+````
+
+No stripping occurs if the code span contains only spaces:
+
+````
+` `
+`  `
+````
+````
+<p><code> </code>
+<code>  </code></p>
+````
+
 [Line endings](https://github.github.com/gfm/#line-ending) are treated like spaces:  
+
+`````
+``
+foo
+bar  
+baz
+``
+`````
+
+`````
+<p><code>foo bar   baz</code></p>
+`````
+
 [Example 329](https://github.github.com/gfm/#example-329)  
 
     ``
-    foo
+    foo 
     ``
 
    
 
-    <p><code>foo</code></p>
+    <p><code>foo </code></p>
 
-Interior spaces and [line endings](https://github.github.com/gfm/#line-ending) are collapsed into single spaces, just as they would be by a browser:  
+Interior spaces are not collapsed:    
 [Example 330](https://github.github.com/gfm/#example-330)  
 
-    `foo   bar
+    `foo   bar 
       baz`
 
    
 
-    <p><code>foo bar baz</code></p>
+    <p><code>foo   bar  baz</code></p>
 
-Not all [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace) (for instance, non-breaking space) is collapsed, however:  
-[Example 331](https://github.github.com/gfm/#example-331)  
+Note that browsers will typically collapse consecutive spaces when rendering `<code>` elements, so it is recommended that the following CSS be used:
 
-    `a  b`
-
-   
-
-    <p><code>a  b</code></p>
-
-Q: Why not just leave the spaces, since browsers will collapse them anyway? A: Because we might be targeting a non-HTML format, and we shouldn’t rely on HTML-specific rendering assumptions.  
-(Existing implementations differ in their treatment of internal spaces and [line endings](https://github.github.com/gfm/#line-ending). Some, including `Markdown.pl` and `showdown`, convert an internal [line ending](https://github.github.com/gfm/#line-ending) into a `<br />` tag. But this makes things difficult for those who like to hard-wrap their paragraphs, since a line break in the midst of a code span will cause an unintended line break in the output. Others just leave internal spaces as they are, which is fine if only HTML is being targeted.)  
-[Example 332](https://github.github.com/gfm/#example-332)  
-
-    `foo `` bar`
-
-   
-
-    <p><code>foo `` bar</code></p>
+    code{white-space: pre-wrap;}
 
 Note that backslash escapes do not work in code spans. All backslashes are treated literally:  
 [Example 333](https://github.github.com/gfm/#example-333)  
@@ -78,7 +112,25 @@ Note that backslash escapes do not work in code spans. All backslashes are treat
 
     <p><code>foo\</code>bar`</p>
 
-Backslash escapes are never needed, because one can always choose a string of _n_ backtick characters as delimiters, where the code does not contain any strings of exactly _n_ backtick characters.  
+Backslash escapes are never needed, because one can always choose a string of _n_ backtick characters as delimiters, where the code does not contain any strings of exactly _n_ backtick characters. 
+
+````
+``foo`bar``
+````
+
+````
+<p><code>foo`bar</code></p>
+````
+
+
+````
+` foo `` bar `
+````
+
+````
+<p><code>foo `` bar</code></p>
+````
+ 
 Code span backticks have higher precedence than any other inline constructs except HTML tags and autolinks. Thus, for example, this is not parsed as emphasized text, since the second `*` is part of a code span:  
 [Example 334](https://github.github.com/gfm/#example-334)  
 

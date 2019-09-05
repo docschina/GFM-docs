@@ -1,6 +1,6 @@
 ### Setext 标题
 
-[setext 标题](https://github.github.com/gfm/#setext-heading)由一行或多行文本组成，每行包含至少一个[非空字符](https://github.github.com/gfm/#non-whitespace-character)，不超过 3 个空格缩进，后跟 [setext 标题下划线](https://github.github.com/gfm/#setext-heading-underline)。 文本行必须是这样的，如果后面没有跟 setext 标题下划线，它们将被解释为段落：它们不能被解释为[代码围栏]((https://github.github.com/gfm/#code-fence))，[ATX 标题](https://github.github.com/gfm/#atx-headings)，[块引用](https://github.github.com/gfm/#block-quotes)，[专门的换行](https://github.github.com/gfm/#thematic-breaks)，[列表项](https://github.github.com/gfm/#list-items)或 [HTML 块]((https://github.github.com/gfm/#html-blocks))。
+[setext 标题](https://github.github.com/gfm/#setext-heading)由一行或多行文本组成，每行包含至少一个[非空字符](https://github.github.com/gfm/#non-whitespace-character)，不超过 3 个空格缩进，后跟 [setext 标题下划线](https://github.github.com/gfm/#setext-heading-underline)。文本行必须是这样的，如果后面没有跟 setext 标题下划线，它们将被解释为段落：它们不能被解释为[代码围栏]((https://github.github.com/gfm/#code-fence))，[ATX 标题](https://github.github.com/gfm/#atx-headings)，[块引用](https://github.github.com/gfm/#block-quotes)，[专门的换行](https://github.github.com/gfm/#thematic-breaks)，[列表项](https://github.github.com/gfm/#list-items)或 [HTML 块]((https://github.github.com/gfm/#html-blocks))。
 
 [setext 标题下划线](https://github.github.com/gfm/#setext-heading-underline) 是一系列 `=` 字符或一系列 `-` 字符，不超过 3 个空格缩进和任意数量的尾随空格。如果一行包含单个的 `-`，可以解释为空列表项，它应该以这种方式解释，而不是作为 [setext 标题下划线](https://github.github.com/gfm/#setext-heading-underline)的文本。
 
@@ -48,6 +48,21 @@
 
     <h2>Foo</h2>
     <h1>Foo</h1>
+
+
+Example 51.5     
+这个内容是，作为内联来解析的标题它的原始内容的结果，标题的原始内容形成连接线，并移除初始和末尾空格。
+
+```
+  Foo *bar
+baz*→
+====
+```
+
+```
+<h1>Foo <em>bar
+baz</em></h1>
+```
 
 标题内容最多可缩进三个空格，不需要与下划线对齐：  
 [示例 53](https://github.github.com/gfm/#example-53)  
@@ -161,7 +176,7 @@ setext 标题下划线不能包含内部空格：
     <p>of dashes&quot;/&gt;</p>
 
 
-setext 标题下划线不能是列表项或块引用中的[懒连续行](https://github.github.com/gfm/#lazy-continuation-line)：   
+setext 标题下划线不能是列表项或块引用中的[懒延续线](https://github.github.com/gfm/#lazy-continuation-line)：   
 [示例 61](https://github.github.com/gfm/#example-61)  
 
     > Foo
@@ -326,7 +341,7 @@ Setext 标题文本行不能解释为段落以外的块结构。因此，这些�
     <h2>bar</h2>
     <p>baz</p>
 
-想要解释 2 的作者可以在专门的换行周围加上空白，
+想要解释 2 的作者可以在专门的换行周围加上空白行，
 [示例 73](https://github.github.com/gfm/#example-73)  
 
     Foo
@@ -343,7 +358,7 @@ Setext 标题文本行不能解释为段落以外的块结构。因此，这些�
     <hr />
     <p>baz</p>
 
-或使用不能算作[setext 标题下划线](https://github.github.com/gfm/#setext-heading-underline)的主题中断，例如  
+或使用不能算作[setext 标题下划线](https://github.github.com/gfm/#setext-heading-underline)的专门的换行，例如  
 [示例 74](https://github.github.com/gfm/#example-74)  
 
     Foo

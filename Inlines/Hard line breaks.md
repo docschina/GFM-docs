@@ -83,7 +83,7 @@ Line breaks do not occur inside code spans
 
    
 
-    <p><code>code span</code></p>
+    <p><code>code  span</code></p>
 
 [Example 640](https://github.github.com/gfm/#example-640)  
 

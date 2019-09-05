@@ -1,7 +1,7 @@
 ### Autolinks
 
 [Autolink](https://github.github.com/gfm/#autolink)s are absolute URIs and email addresses inside `<` and `>`. They are parsed as links, with the URL or email address as the link label.  
-A [URI autolink](https://github.github.com/gfm/#uri-autolink) consists of `<`, followed by an [absolute URI](https://github.github.com/gfm/#absolute-uri) not containing `<`, followed by `>`. It is parsed as a link to the URI, with the URI as the link’s label.  
+A [URI autolink](https://github.github.com/gfm/#uri-autolink) consists of `<`, followed by an [absolute URI](https://github.github.com/gfm/#absolute-uri) followed by `>`. It is parsed as a link to the URI, with the URI as the link’s label.  
 An [absolute URI](https://github.github.com/gfm/#absolute-uri), for these purposes, consists of a [scheme](https://github.github.com/gfm/#scheme) followed by a colon (`:`) followed by zero or more characters other than ASCII [whitespace](https://github.github.com/gfm/#whitespace) and control characters, `<`, and `>`. If the URI includes these characters, they must be percent-encoded (e.g. `%20` for a space).  
 For purposes of this spec, a [scheme](https://github.github.com/gfm/#scheme) is any sequence of 2–32 characters beginning with an ASCII letter and followed by any combination of ASCII letters, digits, or the symbols plus (”+”), period (”.”), or hyphen (”-”).  
 Here are some valid autolinks:  

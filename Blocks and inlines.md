@@ -21,4 +21,4 @@ This means that parsing can proceed in two steps: first, the block structure of 
 
 ### Container blocks and leaf blocks
 
-We can divide blocks into two types: [container block](https://github.github.com/gfm/#container-block)s, which can contain other blocks, and [leaf block](https://github.github.com/gfm/#leaf-block)s, which cannot.  
+We can divide blocks into two types: [container blocks](https://github.github.com/gfm/#container-block)s, which can contain other blocks, and [leaf blocks](https://github.github.com/gfm/#leaf-block)s, which cannot.

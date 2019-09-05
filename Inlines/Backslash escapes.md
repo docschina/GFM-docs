@@ -29,6 +29,7 @@ Escaped characters are treated as regular characters and do not have their usual
     \* not a list
     \# not a heading
     \[foo]: /url "not a reference"
+    \&ouml; not a character entity
 
    
 
@@ -39,7 +40,8 @@ Escaped characters are treated as regular characters and do not have their usual
     1. not a list
     * not a list
     # not a heading
-    [foo]: /url &quot;not a reference&quot;</p>
+    [foo]: /url &quot;not a reference&quot;
+    &amp;ouml; not a character entity</p>
 
 If a backslash is itself escaped, the following character is not:  
 [Example 304](https://github.github.com/gfm/#example-304)  

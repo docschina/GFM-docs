@@ -33,7 +33,7 @@
 
 HTML 块会一直连续，直到它们被适当的[结束条件](https://github.github.com/gfm/#end-condition)，或文档的最后一行，或其他[容器块](https://github.github.com/gfm/#container-block)关闭。这意味着 HTML 块中可能被识别为起始条件的任何 HTML 都将被解析器忽略并按原样传递，而不会更改解析器的状态。
 
-例如，`<table>` 起头的 HTML 块中的 `<pre>` 不会影响解析器状态; 当 HTML 块由启动条件 6 启动时，它将在任意空白行结束。这可能是令人惊讶的：  
+例如，`<table>` 起始的 HTML 块中的 `<pre>` 不会影响解析器状态; 当 HTML 块由启动条件 6 启动时，它将在任意空白行结束。这可能是令人惊讶的：  
 [示例 116](https://github.github.com/gfm/#示例-116)  
 
     <table><tr><td>
@@ -53,7 +53,7 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     </pre></p>
     </td></tr></table>
 
-在这种情况下，HTML 块由换行符终止 `**Hello**` 文本保持逐字逐句且常规的解析，如此周而复始，并有段落，强调的 `world`，内联和块 HTML 伴随。
+在这种情况下，HTML 块由换行符终止，`**Hello**` 文本保持逐字逐句且正常的解析，如此周而复始，并有段落，强调的 `world`，内联和块类型的 HTML 伴随。
 
 除类型 7 之外的所有类型的 [HTML 块](https://github.github.com/gfm/#html-blocks)都可能会中断段落。类型 7 的块可能不会中断段落。 （此限制旨在防止对包裹段落中的长标签进行不必要的解释，比如起始的 HTML 块。）
 
@@ -211,7 +211,7 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     foo
     </td></tr></table>
 
-直到下一个空白行或文档结尾的所有内容都包含在 HTML 块中。因此，在下面的示例中，看起来像 Markdown 代码块的实际上是 HTML 块的一部分，它一直持续到空白行或文档的末尾：
+直到下一个空行或文档结尾的所有内容都包含在 HTML 块中。因此，在下面的示例中，看起来像 Markdown 代码块的实际上是 HTML 块的一部分，它一直持续到空白行或文档的末尾：
   
 [示例 129](https://github.github.com/gfm/#示例-129)  
 
@@ -227,7 +227,7 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     int x = 33;
     ```
 
-要启动带有 _不在_（6）中的块级标签列表中的标签的 [HTML 块](https://github.github.com/gfm/#html-block)，必须将标签单独放在第一行（并且必须完成）：  
+要创造标签带有 _不在_（6）中的块级标签列表中的 [HTML 块](https://github.github.com/gfm/#html-block)，必须将标签单独放在第一行（并且必须完成）：  
 [示例 130](https://github.github.com/gfm/#示例-130)  
 
     <a href="foo">
@@ -303,7 +303,7 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     <p><em>foo</em></p>
     </del>
 
-最后，在这种情况下，`<del>` 标签在 CommonMark 段落中被解释为原生 HTML。 （因为标签本身不在一行，我们得到内联 HTML 而不是 HTML 块。）  
+最后，在这种情况下，`<del>` 标签在 CommonMark 段落中被解释为原生 HTML。（因为标签本身不在一行，我们得到内联 HTML 而不是 HTML 块。）  
 [示例 136](https://github.github.com/gfm/#示例-136)   
 
     <del>*foo*</del>
@@ -374,7 +374,7 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     </style>
     <p>okay</p>
 
-如果没有匹配的结束标签，则该块将在文档的末尾（或封闭的[块引号](https://github.github.com/gfm/#block-quotes)[列表项](https://github.github.com/gfm/#list-items)）结束：
+如果没有匹配的结束标签，则该块将在文档的末尾（或闭合的[块引号](https://github.github.com/gfm/#block-quotes)[列表项](https://github.github.com/gfm/#list-items)）结束：
 
 [示例 140](https://github.github.com/gfm/#示例-140)  
 
@@ -571,7 +571,7 @@ CDATA （类型 5）：
     bar
     </div>
 
-然而，除文档末尾外，还需要以下空白行，[除](https://github.github.com/gfm/#html-block)以上类型 1-5 的块外：
+然而，除文档末尾外，还需要以下空白行，[除](https://github.github.com/gfm/#html-block)以上类型 1-5 的块外：    
 [示例 153](https://github.github.com/gfm/#示例-153)  
 
     <div>
@@ -612,7 +612,7 @@ CDATA （类型 5）：
 
 大多数 Markdown 实现（包括 Gruber 自己的一些实现）并不尊重这些限制的全部。
 
-但是，有一个方面，Gruber 的规则比这里给出的规则更自由，因为它允许在 HTML 块中出现空行。在这里禁止它们有两个原因。首先，它消除了解析平衡标签的需要，这是昂贵的，并且如果没有找到匹配的结束标签，则可能需要从文档的末尾回溯。其次，它提供了一种非常简单灵活的方法，可以在 HTML 标签中包含 Markdown 内容：只需使用空行将Markdown 与 HTML 分开：
+但是，有一个方面，Gruber 的规则比这里给出的规则更自由，因为它允许在 HTML 块中出现空行。在这里禁止它们有两个原因。首先，它消除了解析平衡标签的需要，这是昂贵的，并且如果没有找到匹配的结束标签，则可能需要从文档的末尾回溯。其次，它提供了一种非常简单灵活的方法，可以在 HTML 标签中包含 Markdown 内容：只需使用空行将 Markdown 与 HTML 分开：    
 对比：  
 [示例 155](https://github.github.com/gfm/#示例-155)  
 
@@ -641,7 +641,7 @@ CDATA （类型 5）：
     </div>
 
 如果打开的标签具有属性 `markdown=1`，则某些 Markdown 实现采用了将标签内的内容解释为文本的约定。上面给出的规则似乎是一种更简单，更优雅的方式来实现相同的表达能力，这也很容易解析。
-主要的潜在缺点是，人们无法再将 HTML 块粘贴到 Markdown 文档中，并具有 100％ 的可靠性。但是，在大多数情况下，这样可以正常工作，因为 HTML 中的空行通常后跟HTML 块标签。对于示例：  
+主要的潜在缺点是，人们无法再将 HTML 块粘贴到 Markdown 文档中，并具有 100％ 的可靠性。但是，在大多数情况下，这样可以正常工作，因为 HTML 中的空行通常后跟 HTML 块标签。对于示例：  
 [示例 157](https://github.github.com/gfm/#示例-157)  
 
     <table>

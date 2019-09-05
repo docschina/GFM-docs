@@ -24,8 +24,8 @@ Many implementations have also restricted intraword emphasis to the `*` forms,
 
 The rules given below capture all of these patterns, while allowing for efficient parsing strategies that do not backtrack.  
 First, some definitions. A [delimiter run](https://github.github.com/gfm/#delimiter-run) is either a sequence of one or more `*` characters that is not preceded or followed by a non-backslash-escaped `*` character, or a sequence of one or more `_` characters that is not preceded or followed by a non-backslash-escaped `_` character.  
-A [left-flanking delimiter run](https://github.github.com/gfm/#left-flanking-delimiter-run) is a [delimiter run](https://github.github.com/gfm/#delimiter-run) that is (a) not followed by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace), and (b) not followed by a [punctuation character](https://github.github.com/gfm/#punctuation-character), or preceded by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace) or a [punctuation character](https://github.github.com/gfm/#punctuation-character). For purposes of this definition, the beginning and the end of the line count as Unicode whitespace.  
-A [right-flanking delimiter run](https://github.github.com/gfm/#right-flanking-delimiter-run) is a [delimiter run](https://github.github.com/gfm/#delimiter-run) that is (a) not preceded by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace), and (b) not preceded by a [punctuation character](https://github.github.com/gfm/#punctuation-character), or followed by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace) or a [punctuation character](https://github.github.com/gfm/#punctuation-character). For purposes of this definition, the beginning and the end of the line count as Unicode whitespace.  
+A [left-flanking delimiter run](https://github.github.com/gfm/#left-flanking-delimiter-run) is a [delimiter run](https://github.github.com/gfm/#delimiter-run) that is (1) not followed by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace), and either (2a) not followed by a [punctuation character](https://github.github.com/gfm/#punctuation-character),or (2b) followed by a punctuation character and preceded by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace) or a [punctuation character](https://github.github.com/gfm/#punctuation-character). For purposes of this definition, the beginning and the end of the line count as Unicode whitespace.  
+A [right-flanking delimiter run](https://github.github.com/gfm/#right-flanking-delimiter-run) is a [delimiter run](https://github.github.com/gfm/#delimiter-run) that is (1) not preceded by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace), and either (2a) not preceded by a punctuation character,or (2b) preceded by a punctuation character  and followed by [Unicode whitespace](https://github.github.com/gfm/#unicode-whitespace) or a [punctuation character](https://github.github.com/gfm/#punctuation-character). For purposes of this definition, the beginning and the end of the line count as Unicode whitespace.  
 Here are some examples of delimiter runs.  
 
 *   left-flanking but not right-flanking:  
@@ -64,8 +64,8 @@ The following rules define emphasis and strong emphasis:
 6.  A double `__` [can open strong emphasis](https://github.github.com/gfm/#can-open-strong-emphasis) iff it is part of a [left-flanking delimiter run](https://github.github.com/gfm/#left-flanking-delimiter-run) and either (a) not part of a [right-flanking delimiter run](https://github.github.com/gfm/#right-flanking-delimiter-run) or (b) part of a [right-flanking delimiter run](https://github.github.com/gfm/#right-flanking-delimiter-run) preceded by punctuation.
 7.  A double `**` [can close strong emphasis](https://github.github.com/gfm/#can-close-strong-emphasis) iff it is part of a [right-flanking delimiter run](https://github.github.com/gfm/#right-flanking-delimiter-run).
 8.  A double `__` [can close strong emphasis](https://github.github.com/gfm/#can-close-strong-emphasis) iff it is part of a [right-flanking delimiter run](https://github.github.com/gfm/#right-flanking-delimiter-run) and either (a) not part of a [left-flanking delimiter run](https://github.github.com/gfm/#left-flanking-delimiter-run) or (b) part of a [left-flanking delimiter run](https://github.github.com/gfm/#left-flanking-delimiter-run) followed by punctuation.
-9.  Emphasis begins with a delimiter that [can open emphasis](https://github.github.com/gfm/#can-open-emphasis) and ends with a delimiter that [can close emphasis](https://github.github.com/gfm/#can-close-emphasis), and that uses the same character (`_` or `*`) as the opening delimiter. The opening and closing delimiters must belong to separate [delimiter runs](https://github.github.com/gfm/#delimiter-run). If one of the delimiters can both open and close emphasis, then the sum of the lengths of the delimiter runs containing the opening and closing delimiters must not be a multiple of 3.
-10.  Strong emphasis begins with a delimiter that [can open strong emphasis](https://github.github.com/gfm/#can-open-strong-emphasis) and ends with a delimiter that[can close strong emphasis](https://github.github.com/gfm/#can-close-strong-emphasis), and that uses the same character (`_` or `*`) as the opening delimiter. The opening and closing delimiters must belong to separate [delimiter runs](https://github.github.com/gfm/#delimiter-run). If one of the delimiters can both open and close strong emphasis, then the sum of the lengths of the delimiter runs containing the opening and closing delimiters must not be a multiple of 3.
+9.  Emphasis begins with a delimiter that [can open emphasis](https://github.github.com/gfm/#can-open-emphasis) and ends with a delimiter that [can close emphasis](https://github.github.com/gfm/#can-close-emphasis), and that uses the same character (`_` or `*`) as the opening delimiter. The opening and closing delimiters must belong to separate [delimiter runs](https://github.github.com/gfm/#delimiter-run). If one of the delimiters can both open and close emphasis, then the sum of the lengths of the delimiter runs containing the opening and closing delimiters must not be a multiple of 3 unless both lengths are multiples of 3.
+10.  Strong emphasis begins with a delimiter that [can open strong emphasis](https://github.github.com/gfm/#can-open-strong-emphasis) and ends with a delimiter that[can close strong emphasis](https://github.github.com/gfm/#can-close-strong-emphasis), and that uses the same character (`_` or `*`) as the opening delimiter. The opening and closing delimiters must belong to separate [delimiter runs](https://github.github.com/gfm/#delimiter-run). If one of the delimiters can both open and close strong emphasis, then the sum of the lengths of the delimiter runs containing the opening and closing delimiters must not be a multiple of 3 unless both lengths are multiples of 3.
 11.  A literal `*` character cannot occur at the beginning or end of `*`\-delimited emphasis or `**`\-delimited strong emphasis, unless it is backslash-escaped.
 12.  A literal `_` character cannot occur at the beginning or end of `_`\-delimited emphasis or `__`\-delimited strong emphasis, unless it is backslash-escaped.
 
@@ -627,7 +627,8 @@ Note that in the preceding case, the interpretation
 
     <p><em>foo</em><em>bar<em></em>baz</em></p>
 
-is precluded by the condition that a delimiter that can both open and close (like the `*` after `foo`) cannot form emphasis if the sum of the lengths of the delimiter runs containing the opening and closing delimiters is a multiple of 3.  
+is precluded by the condition that a delimiter that can both open and close (like the `*` after `foo`) cannot form emphasis if the sum of the lengths of the delimiter runs containing the opening and closing delimiters is a multiple of 3 unless both lengths are multiples of 3.
+
 For the same reason, we don’t get two consecutive emphasis sections in this example:  
 [Example 404](https://github.github.com/gfm/#example-404)  
 
@@ -661,6 +662,24 @@ The same condition ensures that the following cases are all strong emphasis nest
    
 
     <p><em>foo<strong>bar</strong></em></p>
+
+When the lengths of the interior closing and opening
+delimiter runs are *both* multiples of 3, though,
+they can match to create emphasis:
+
+````
+foo***bar***baz
+````
+````
+<p>foo<em><strong>bar</strong></em>baz</p>
+````
+
+````
+foo******bar*********baz
+````
+````
+<p>foo<strong><strong><strong>bar</strong></strong></strong>***baz</p>
+````
 
 Indefinite levels of nesting are possible:  
 [Example 408](https://github.github.com/gfm/#example-408)  

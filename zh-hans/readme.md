@@ -1,6 +1,6 @@
 # GitHub 风格的 Markdown 规范
 
-版本 0.28-gfm (2017-08-01)
+版本 0.29-gfm (2019-04-06) 
 
 此正式规范基于 John MacFarlane 的 [CommonMark 规范](http://spec.commonmark.org/)，并根据 [![Creative Commons BY-SA](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/) 授权
 

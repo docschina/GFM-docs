@@ -1,6 +1,7 @@
 ### Link reference definitions
 
 A [link reference definition](https://github.github.com/gfm/#link-reference-definition) consists of a [link label](https://github.github.com/gfm/#link-label), indented up to three spaces, followed by a colon (`:`), optional [whitespace](https://github.github.com/gfm/#whitespace) (including up to one [line ending](https://github.github.com/gfm/#line-ending)), a [link destination](https://github.github.com/gfm/#link-destination), optional [whitespace](https://github.github.com/gfm/#whitespace) (including up to one [line ending](https://github.github.com/gfm/#line-ending)), and an optional [link title](https://github.github.com/gfm/#link-title), which if it is present must be separated from the [link destination](https://github.github.com/gfm/#link-destination)by [whitespace](https://github.github.com/gfm/#whitespace). No further [non-whitespace characters](https://github.github.com/gfm/#non-whitespace-character) may occur on the line.  
+
 A [link reference definition](https://github.github.com/gfm/#link-reference-definition) does not correspond to a structural element of a document. Instead, it defines a label which can be used in [reference links](https://github.github.com/gfm/#reference-link) and reference-style [images](https://github.github.com/gfm/#images) elsewhere in the document. [Link reference definitions](https://github.github.com/gfm/#link-reference-definition) can come either before or after the links that use them.  
 [Example 159](https://github.github.com/gfm/#example-159)  
 
@@ -104,9 +105,7 @@ The link destination may not be omitted:
     <p>[foo]:</p>
     <p>[foo]</p>
 
-
-However, an empty link destination may be specified using
-angle brackets:    
+However, an empty link destination may be specified using angle brackets:    
 
 Example 166.5    
 ```md
@@ -119,8 +118,7 @@ Example 166.5
 <p><a href="">foo</a></p>
 ```
 
-The title must be separated from the link destination by
-whitespace:
+The title must be separated from the link destination by whitespace:
 
 Example 166.75
 
@@ -340,11 +338,7 @@ Several [link reference definitions](https://github.github.com/gfm/#link-refere
     <blockquote>
     </blockquote>
 
-Whether something is a [link reference definition] is
-independent of whether the link reference it defines is
-used in the document.  Thus, for example, the following
-document contains just a link reference definition, and
-no visible content:
+Whether something is a [link reference definition] is independent of whether the link reference it defines is used in the document.  Thus, for example, the following document contains just a link reference definition, and no visible content:
 
 ```````````````````````````````` md
 [foo]: /url

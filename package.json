@@ -12,6 +12,6 @@
     "deploy:LinFeng1997": "sh ./scripts/deploy-LinFeng1997.sh"
   },
   "dependencies": {
-    "vuepress": "^1.0.0-alpha.37"
+    "vuepress": "^1.0.0"
   }
 }

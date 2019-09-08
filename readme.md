@@ -1,6 +1,6 @@
 # GitHub Flavored Markdown Spec
 
-Version 0.28-gfm (2017-08-01)  
+Version 0.29-gfm (2019-04-06)  
 This formal specification is based on the [CommonMark Spec](http://spec.commonmark.org/) by [John MacFarlane](http://github.com/jgm) and licensed under [![Creative Commons BY-SA](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/)  
   
 

@@ -7,6 +7,15 @@ module.exports = {
     '/zh-hans/': {lang: 'zh-hans', title: 'GFM', description: 'GitHub Flavored Markdown Spec'}
   },
   themeConfig: {
+    repo: 'docschina/GFM-docs',
+    // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
+    // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
+    repoLabel: 'GitHub',
+
+    // 默认是 false, 设置为 true 来启用
+    editLinks: true,
+    // 默认为 "Edit this page"
+    editLinkText: '帮助我们改善此页面！',
     locales: {
       '/': {
         label: 'English',
@@ -19,7 +28,6 @@ module.exports = {
       '/zh-hans/': {
         label: '简体中文',
         selectText: '选择语言',
-        editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新',
         nav: require('./nav/zh'),
         // sidebar: require('./sidebar/zh'),

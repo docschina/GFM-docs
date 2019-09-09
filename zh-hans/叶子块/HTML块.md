@@ -5,34 +5,26 @@
 有七种 [HTML 块](https://github.github.com/gfm/#html-block)，可以通过它们的起始和结束条件来定义。这种块以满足[起始条件](https://github.github.com/gfm/#start-condition)的行开始（在最多三个空格可选缩进之后）。如果没有遇到满足[结束条件](https://github.github.com/gfm/#end-condition)的行，它就以满足匹配结束条件的第一个后续行，或者文档的最后一行，或其他容器块结束。如果第一行同时满足开始条件和结束条件，则该块将仅包含该行。
 
 1. **开始条件：** 行以字符串 `<script`，`<pre` 或 `<style`（不区分大小写）开头，后跟空格，字符串 `>` 或行尾。   
-
    **结束条件：** 行包含结束标签 `</script>`，`</pre>` 或 `</style>`（不区分大小写;它不需要与起始标签匹配）。  
     
-2.  **开始条件：** 行以字符串 `<!--` 开头。
-
+2.  **开始条件：** 行以字符串 `<!--` 开头。    
     **结束条件：** 行包含字符串 `-->`。
     
-3.  **起始条件：** 行以字符串 `<?` 开头。
-
+3.  **起始条件：** 行以字符串 `<?` 开头。    
     **结束条件：** 行包含字符串 `?>`。
     
-4.  **起始条件：** 行以字符串 `<!` 开头，后跟一个大写的 ASCII 字母。
-
+4.  **起始条件：** 行以字符串 `<!` 开头，后跟一个大写的 ASCII 字母。    
     **结束条件：** 行包含字符 `>`。
     
-5.  **起始条件：** 行以字符串 `<![CDATA[` 开头。 
-
+5.  **起始条件：** 行以字符串 `<![CDATA[` 开头。     
     **结束条件：** 行包含字符 `]]>`。
     
-6.  **起始条件：** 行以字符串 `<` 或 `</` 开头，后跟其中一个字符串（不区分大小写）`address`, `article`, `aside`, `base`, `basefont`, `blockquote`, `body`, `caption`, `center`, `col`, `colgroup`, `dd`, `details`, `dialog`, `dir`, `div`, `dl`, `dt`, `fieldset`, `figcaption`, `figure`, `footer`, `form`, `frame`, `frameset`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `head`, `header`, `hr`, `html`, `iframe`, `legend`, `li`, `link`, `main`, `menu`, `menuitem`, `nav`, `noframes`, `ol`, `optgroup`, `option`, `p`, `param`, `section`, `source`, `summary`, `table`, `tbody`, `td`, `tfoot`, `th`, `thead`, `title`, `tr`, `track`, `ul`, 后跟[空格](https://github.github.com/gfm/#whitespace), 在行尾是字符 `>` 或者 `/>`。  
-
+6.  **起始条件：** 行以字符串 `<` 或 `</` 开头，后跟其中一个字符串（不区分大小写）`address`, `article`, `aside`, `base`, `basefont`, `blockquote`, `body`, `caption`, `center`, `col`, `colgroup`, `dd`, `details`, `dialog`, `dir`, `div`, `dl`, `dt`, `fieldset`, `figcaption`, `figure`, `footer`, `form`, `frame`, `frameset`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `head`, `header`, `hr`, `html`, `iframe`, `legend`, `li`, `link`, `main`, `menu`, `menuitem`, `nav`, `noframes`, `ol`, `optgroup`, `option`, `p`, `param`, `section`, `source`, `summary`, `table`, `tbody`, `td`, `tfoot`, `th`, `thead`, `title`, `tr`, `track`, `ul`, 后跟[空格](https://github.github.com/gfm/#whitespace), 在行尾是字符 `>` 或者 `/>`。      
     **结束条件：** 行后跟一个[空行](https://github.github.com/gfm/#blank-line)。
-7.  **起始条件：** 行以完整的[打开标签](https://github.github.com/gfm/#open-tag)或[闭合标签](https://github.github.com/gfm/#closing-tag)（除了 `script`，`style` 或 `pre` 之外的任何标签名称）开始，后面只有[空格](https://github.github.com/gfm/#whitespace)或行尾。
-
+7.  **起始条件：** 行以完整的[打开标签](https://github.github.com/gfm/#open-tag)或[闭合标签](https://github.github.com/gfm/#closing-tag)（除了 `script`，`style` 或 `pre` 之外的任何标签名称）开始，后面只有[空格](https://github.github.com/gfm/#whitespace)或行尾。    
     **结束条件：** 行后紧跟[空行](https://github.github.com/gfm/#blank-line)。
 
-HTML 块会一直连续，直到它们被适当的[结束条件](https://github.github.com/gfm/#end-condition)，或文档的最后一行，或其他[容器块](https://github.github.com/gfm/#container-block)关闭。这意味着 HTML 块中可能被识别为起始条件的任何 HTML 都将被解析器忽略并按原样传递，而不会更改解析器的状态。
-
+HTML 块会一直连续，直到它们被适当的[结束条件](https://github.github.com/gfm/#end-condition)，或文档的最后一行，或其他[容器块](https://github.github.com/gfm/#container-block)关闭。这意味着 HTML 块中可能被识别为起始条件的任何 HTML 都将被解析器忽略并按原样传递，而不会更改解析器的状态。    
 例如，`<table>` 起始的 HTML 块中的 `<pre>` 不会影响解析器状态; 当 HTML 块由启动条件 6 启动时，它将在任意空白行结束。这可能是令人惊讶的：  
 [示例 116](https://github.github.com/gfm/#示例-116)  
 
@@ -53,10 +45,8 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     </pre></p>
     </td></tr></table>
 
-在这种情况下，HTML 块由换行符终止，`**Hello**` 文本保持逐字逐句且正常的解析，如此周而复始，并有段落，强调的 `world`，内联和块类型的 HTML 伴随。
-
-除类型 7 之外的所有类型的 [HTML 块](https://github.github.com/gfm/#html-blocks)都可能会中断段落。类型 7 的块可能不会中断段落。 （此限制旨在防止对包裹段落中的长标签进行不必要的解释，比如起始的 HTML 块。）
-
+在这种情况下，HTML 块由换行符终止，`**Hello**` 文本保持逐字逐句且正常的解析，如此周而复始，并有段落，强调的 `world`，内联和块类型的 HTML 伴随。    
+除类型 7 之外的所有类型的 [HTML 块](https://github.github.com/gfm/#html-blocks)都可能会中断段落。类型 7 的块可能不会中断段落。 （此限制旨在防止对包裹段落中的长标签进行不必要的解释，比如起始的 HTML 块。）    
 一些简单的例子如下。以下是类型 6 的一些基本的 HTML 块：  
 [示例 117](https://github.github.com/gfm/#示例-117)  
 
@@ -211,8 +201,7 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     foo
     </td></tr></table>
 
-直到下一个空行或文档结尾的所有内容都包含在 HTML 块中。因此，在下面的示例中，看起来像 Markdown 代码块的实际上是 HTML 块的一部分，它一直持续到空白行或文档的末尾：
-  
+直到下一个空行或文档结尾的所有内容都包含在 HTML 块中。因此，在下面的示例中，看起来像 Markdown 代码块的实际上是 HTML 块的一部分，它一直持续到空白行或文档的末尾：    
 [示例 129](https://github.github.com/gfm/#示例-129)  
 
     <div></div>
@@ -374,8 +363,7 @@ HTML 块会一直连续，直到它们被适当的[结束条件](https://github.
     </style>
     <p>okay</p>
 
-如果没有匹配的结束标签，则该块将在文档的末尾（或闭合的[块引号](https://github.github.com/gfm/#block-quotes)[列表项](https://github.github.com/gfm/#list-items)）结束：
-
+如果没有匹配的结束标签，则该块将在文档的末尾（或闭合的[块引号](https://github.github.com/gfm/#block-quotes)[列表项](https://github.github.com/gfm/#list-items)）结束：    
 [示例 140](https://github.github.com/gfm/#示例-140)  
 
     <style
@@ -603,15 +591,13 @@ CDATA （类型 5）：
 
 > 唯一的限制是块级 HTML 元素 - 例如 `<div>`, `<table>`, `<pre>`, `<p>` 等 - 必须用空行与周围内容分开，并且不应使用 tab 或空格缩进块的开始和结束标签。
 
-
 在某种程度上，Gruber 的规则比这里给出的规则更具限制性：  
 
 * 它要求 HTML 块前面有一个空行。
 * 它不允许开始标签缩进。
 * 它需要一个匹配的结束标签，它也不允许缩进。
 
-大多数 Markdown 实现（包括 Gruber 自己的一些实现）并不尊重这些限制的全部。
-
+大多数 Markdown 实现（包括 Gruber 自己的一些实现）并不尊重这些限制的全部。    
 但是，有一个方面，Gruber 的规则比这里给出的规则更自由，因为它允许在 HTML 块中出现空行。在这里禁止它们有两个原因。首先，它消除了解析平衡标签的需要，这是昂贵的，并且如果没有找到匹配的结束标签，则可能需要从文档的末尾回溯。其次，它提供了一种非常简单灵活的方法，可以在 HTML 标签中包含 Markdown 内容：只需使用空行将 Markdown 与 HTML 分开：    
 对比：  
 [示例 155](https://github.github.com/gfm/#示例-155)  

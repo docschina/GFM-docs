@@ -1,22 +1,12 @@
 ### Entity and numeric character references
 
-Valid HTML entity references and numeric character references
-can be used in place of the corresponding Unicode character,
-with the following exceptions:
+Valid HTML entity references and numeric character references can be used in place of the corresponding Unicode character, with the following exceptions:
 
-- Entity and character references are not recognized in code
-  blocks and code spans.
+- Entity and character references are not recognized in code blocks and code spans.
 
-- Entity and character references cannot stand in place of
-  special characters that define structural elements in
-  CommonMark.  For example, although `&#42;` can be used
-  in place of a literal `*` character, `&#42;` cannot replace
-  `*` in emphasis delimiters, bullet list markers, or thematic
-  breaks.
+- Entity and character references cannot stand in place of special characters that define structural elements in CommonMark.  For example, although `&#42;` can be used in place of a literal `*` character, `&#42;` cannot replace `*` in emphasis delimiters, bullet list markers, or thematic breaks.
 
-Conforming CommonMark parsers need not store information about
-whether a particular character was represented in the source
-using a Unicode character or an entity reference.
+Conforming CommonMark parsers need not store information about whether a particular character was represented in the source using a Unicode character or an entity reference.
 
 [Entity references](https://github.github.com/gfm/#entity-references) consist of `&` + any of the valid HTML5 entity names + `;`. The document [https://html.spec.whatwg.org/multipage/entities.json](https://html.spec.whatwg.org/multipage/entities.json) is used as an authoritative source for the valid entity references and their corresponding code points.  
 [Example 314](https://github.github.com/gfm/#example-314)  
@@ -139,47 +129,55 @@ Entity and numeric character references are treated as literal text in code span
     </code></pre>
 
 
-Entity and numeric character references cannot be used
-in place of symbols indicating structure in CommonMark
-documents.
+Entity and numeric character references cannot be used in place of symbols indicating structure in CommonMark documents.
 
-```````````````````````````````` example
+Example 325.5     
+````
 &#42;foo&#42;
 *foo*
-.
+````
+
+````
 <p>*foo*
 <em>foo</em></p>
-````````````````````````````````
+````
 
-```````````````````````````````` example
+````
 &#42; foo
 
 * foo
-.
+````
+
+````
 <p>* foo</p>
 <ul>
 <li>foo</li>
 </ul>
-````````````````````````````````
+````
 
-```````````````````````````````` example
+````
 foo&#10;&#10;bar
-.
+````
+
+````
 <p>foo
 
 bar</p>
-````````````````````````````````
+````
 
-```````````````````````````````` example
+````
 &#9;foo
-.
+````
+
+````
 <p>→foo</p>
-````````````````````````````````
+````
 
 
-```````````````````````````````` example
+````
 [a](url &quot;tit&quot;)
-.
-<p>[a](url &quot;tit&quot;)</p>
-````````````````````````````````
+````
 
+````
+<p>[a](url &quot;tit&quot;)</p>
+````

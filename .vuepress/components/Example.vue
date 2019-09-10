@@ -58,7 +58,7 @@
       }
     },
     methods: {
-      renderMd: (str, info) => md.render(`\`\`\`${info}\n${str}\`\`\``)
+      renderMd: (str, info) => md.render(`~~~~~~~~~~${info}\n${str}~~~~~~~~~~`)
     },
     // mounted() {
     //   console.log('$site', this.$site)

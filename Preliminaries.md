@@ -43,130 +43,19 @@ Thus, for example, a tab can be used instead of four spaces in an indented code 
 
 <Example :index="1"/>   
 
-[Example 2](https://github.github.com/gfm/#example-2)  
-
-      →foo→baz→→bim
-
-   
-
-    <pre><code>foo→baz→→bim
-    </code></pre>
-
-[Example 3](https://github.github.com/gfm/#example-3)  
-
-        a→a
-        ὐ→a
-
-   
-
-    <pre><code>a→a
-    ὐ→a
-    </code></pre>
-
+<Example :index="2"/>
+<Example :index="3"/>
 In the following example, a continuation paragraph of a list item is indented with a tab; this has exactly the same effect as indentation with four spaces would:  
-[Example 4](https://github.github.com/gfm/#example-4)  
-
-      - foo
-    
-    →bar
-
-   
-
-    <ul>
-    <li>
-    <p>foo</p>
-    <p>bar</p>
-    </li>
-    </ul>
-
-[Example 5](https://github.github.com/gfm/#example-5)  
-
-    - foo
-    
-    →→bar
-
-   
-
-    <ul>
-    <li>
-    <p>foo</p>
-    <pre><code>  bar
-    </code></pre>
-    </li>
-    </ul>
-
+<Example :index="4"/>
+<Example :index="5"/>
 Normally the `>` that begins a block quote may be followed optionally by a space, which is not considered part of the content. In the following case `>` is followed by a tab, which is treated as if it were expanded into three spaces. Since one of these spaces is considered part of the delimiter, `foo` is considered to be indented six spaces inside the block quote context, so we get an indented code block starting with two spaces.  
 
-[Example 6](https://github.github.com/gfm/#example-6)  
-
-    >→→foo
-
-   
-
-    <blockquote>
-    <pre><code>  foo
-    </code></pre>
-    </blockquote>
-
-[Example 7](https://github.github.com/gfm/#example-7)  
-
-    -→→foo
-
-   
-
-    <ul>
-    <li>
-    <pre><code>  foo
-    </code></pre>
-    </li>
-    </ul>
-
-[Example 8](https://github.github.com/gfm/#example-8)  
-
-        foo
-    →bar
-
-   
-
-    <pre><code>foo
-    bar
-    </code></pre>
-
-[Example 9](https://github.github.com/gfm/#example-9)  
-
-     - foo
-       - bar
-    → - baz
-
-   
-
-    <ul>
-    <li>foo
-    <ul>
-    <li>bar
-    <ul>
-    <li>baz</li>
-    </ul>
-    </li>
-    </ul>
-    </li>
-    </ul>
-
-[Example 10](https://github.github.com/gfm/#example-10)  
-
-    #→Foo
-
-   
-
-    <h1>Foo</h1>
-
-[Example 11](https://github.github.com/gfm/#example-11)  
-
-    *→*→*→
-
-   
-
-    <hr />
+<Example :index="6"/>
+<Example :index="7"/>
+<Example :index="8"/>
+<Example :index="9"/>
+<Example :index="10"/>
+<Example :index="11"/>
 
 ### 3. Insecure characters
 

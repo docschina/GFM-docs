@@ -1,3 +1,4 @@
+{{($page.frontmatter.start = 89) ? null : null}}
 ### Fenced code blocks
 
 A [code fence](https://github.github.com/gfm/#code-fence) is a sequence of at least three consecutive backtick characters (`` ` ``) or tildes (`~`). (Tildes and backticks cannot be mixed.) A [fenced code block](https://github.github.com/gfm/#fenced-code-block) begins with a code fence, indented no more than three spaces.  
@@ -13,384 +14,81 @@ A fenced code block may interrupt a paragraph, and does not require a blank line
 The content of a code fence is treated as literal text, not parsed as inlines. The first word of the [info string](https://github.github.com/gfm/#info-string) is typically used to specify the language of the code sample, and rendered in the `class` attribute of the `code`tag. However, this spec does not mandate any particular treatment of the [info string](https://github.github.com/gfm/#info-string).  
 
 Here is a simple example with backticks:  
-[Example 88](https://github.github.com/gfm/#example-88)  
-
-    ```
-    <
-     >
-    ```
-
-   
-
-    <pre><code>&lt;
-     &gt;
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 With tildes:  
-[Example 89](https://github.github.com/gfm/#example-89)  
-
-    ~~~
-    <
-     >
-    ~~~
-
-   
-
-    <pre><code>&lt;
-     &gt;
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 Fewer than three backticks is not enough:  
-[Example 90](https://github.github.com/gfm/#example-90)  
-
-    ``
-    foo
-    ``
-
-   
-
-    <p><code>foo</code></p>
+<Example :index="$page.frontmatter.start++"/>
 
 The closing code fence must use the same character as the opening fence:  
-[Example 91](https://github.github.com/gfm/#example-91)  
+<Example :index="$page.frontmatter.start++"/>
 
-    ```
-    aaa
-    ~~~
-    ```
-
-   
-
-    <pre><code>aaa
-    ~~~
-    </code></pre>
-
-[Example 92](https://github.github.com/gfm/#example-92)  
-
-    ~~~
-    aaa
-    ```
-    ~~~
-
-   
-
-    <pre><code>aaa
-    ```
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 The closing code fence must be at least as long as the opening fence:  
-[Example 93](https://github.github.com/gfm/#example-93)  
+<Example :index="$page.frontmatter.start++"/>
 
-    ````
-    aaa
-    ```
-    ``````
-
-   
-
-    <pre><code>aaa
-    ```
-    </code></pre>
-
-[Example 94](https://github.github.com/gfm/#example-94)  
-
-    ~~~~
-    aaa
-    ~~~
-    ~~~~
-
-   
-
-    <pre><code>aaa
-    ~~~
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 Unclosed code blocks are closed by the end of the document (or the enclosing [block quote](https://github.github.com/gfm/#block-quotes) or [list item](https://github.github.com/gfm/#list-items)):  
-[Example 95](https://github.github.com/gfm/#example-95)  
+<Example :index="$page.frontmatter.start++"/>
 
-    ```
+<Example :index="$page.frontmatter.start++"/>
 
-   
-
-    <pre><code></code></pre>
-
-[Example 96](https://github.github.com/gfm/#example-96)  
-
-    `````
-    
-    ```
-    aaa
-
-   
-
-    <pre><code>
-    ```
-    aaa
-    </code></pre>
-
-[Example 97](https://github.github.com/gfm/#example-97)  
-
-    > ```
-    > aaa
-    
-    bbb
-
-   
-
-    <blockquote>
-    <pre><code>aaa
-    </code></pre>
-    </blockquote>
-    <p>bbb</p>
+<Example :index="$page.frontmatter.start++"/>
 
 A code block can have all empty lines as its content:  
-[Example 98](https://github.github.com/gfm/#example-98)  
-
-    ```
-    
-      
-    ```
-
-   
-
-    <pre><code>
-      
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 A code block can be empty:  
-[Example 99](https://github.github.com/gfm/#example-99)  
-
-    ```
-    ```
-
-   
-
-    <pre><code></code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 Fences can be indented. If the opening fence is indented, content lines will have equivalent opening indentation removed, if present:  
-[Example 100](https://github.github.com/gfm/#example-100)  
+<Example :index="$page.frontmatter.start++"/>
 
-     ```
-     aaa
-    aaa
-    ```
+<Example :index="$page.frontmatter.start++"/>
 
-   
-
-    <pre><code>aaa
-    aaa
-    </code></pre>
-
-[Example 101](https://github.github.com/gfm/#example-101)  
-
-      ```
-    aaa
-      aaa
-    aaa
-      ```
-
-   
-
-    <pre><code>aaa
-    aaa
-    aaa
-    </code></pre>
-
-[Example 102](https://github.github.com/gfm/#example-102)  
-
-       ```
-       aaa
-        aaa
-      aaa
-       ```
-
-   
-
-    <pre><code>aaa
-     aaa
-    aaa
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 Four spaces indentation produces an indented code block:  
-[Example 103](https://github.github.com/gfm/#example-103)  
-
-        ```
-        aaa
-        ```
-
-   
-
-    <pre><code>```
-    aaa
-    ```
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 Closing fences may be indented by 0-3 spaces, and their indentation need not match that of the opening fence:  
-[Example 104](https://github.github.com/gfm/#example-104)  
+<Example :index="$page.frontmatter.start++"/>
 
-    ```
-    aaa
-      ```
-
-   
-
-    <pre><code>aaa
-    </code></pre>
-
-[Example 105](https://github.github.com/gfm/#example-105)  
-
-       ```
-    aaa
-      ```
-
-   
-
-    <pre><code>aaa
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 This is not a closing fence, because it is indented 4 spaces:  
-[Example 106](https://github.github.com/gfm/#example-106)  
-
-    ```
-    aaa
-        ```
-
-   
-
-    <pre><code>aaa
-        ```
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 Code fences (opening and closing) cannot contain internal spaces:  
-[Example 107](https://github.github.com/gfm/#example-107)  
+<Example :index="$page.frontmatter.start++"/>
 
-    ``` ```
-    aaa
-
-   
-
-    <p><code></code>
-    aaa</p>
-
-[Example 108](https://github.github.com/gfm/#example-108)  
-
-    ~~~~~~
-    aaa
-    ~~~ ~~
-
-   
-
-    <pre><code>aaa
-    ~~~ ~~
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 Fenced code blocks can interrupt paragraphs, and can be followed directly by paragraphs, without a blank line between:  
-[Example 109](https://github.github.com/gfm/#example-109)  
-
-    foo
-    ```
-    bar
-    ```
-    baz
-
-   
-
-    <p>foo</p>
-    <pre><code>bar
-    </code></pre>
-    <p>baz</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Other blocks can also occur before and after fenced code blocks without an intervening blank line:  
-[Example 110](https://github.github.com/gfm/#example-110)  
-
-    foo
-    ---
-    ~~~
-    bar
-    ~~~
-    # baz
-
-   
-
-    <h2>foo</h2>
-    <pre><code>bar
-    </code></pre>
-    <h1>baz</h1>
+<Example :index="$page.frontmatter.start++"/>
 
 An [info string](https://github.github.com/gfm/#info-string) can be provided after the opening code fence.
 Although this spec doesn't mandate any particular treatment of the info string, the first word is typically used to specify the language of the code block. In HTML output, the language is normally indicated by adding a class to the `code` element consisting of `language-` followed by the language name.    
-[Example 111](https://github.github.com/gfm/#example-111)  
+<Example :index="$page.frontmatter.start++"/>
 
-    ```ruby
-    def foo(x)
-      return 3
-    end
-    ```
+<Example :index="$page.frontmatter.start++"/>
 
-   
-
-    <pre><code class="language-ruby">def foo(x)
-      return 3
-    end
-    </code></pre>
-
-[Example 112](https://github.github.com/gfm/#example-112)  
-
-    ~~~~    ruby startline=3 $%@#$
-    def foo(x)
-      return 3
-    end
-    ~~~~~~~
-
-   
-
-    <pre><code class="language-ruby">def foo(x)
-      return 3
-    end
-    </code></pre>
-
-[Example 113](https://github.github.com/gfm/#example-113)  
-
-    ````;
-    ````
-
-   
-
-    <pre><code class="language-;"></code></pre>
+<Example :index="$page.frontmatter.start++"/>
 
 [Info strings](https://github.github.com/gfm/#info-string) for backtick code blocks cannot contain backticks:      
-[Example 114](https://github.github.com/gfm/#example-114)  
-
-    ``` aa ```
-    foo
-
-   
-
-    <p><code>aa</code>
-    foo</p>
+<Example :index="$page.frontmatter.start++"/>
 
 [Info strings](https://github.github.com/gfm/#info-string) for tilde code blocks can contain backticks and tildes:     
 
-Example 114.5
-``` example
-~~~ aa ``` ~~~
-foo
-~~~
-```
+<Example :index="$page.frontmatter.start++"/>
 
-```
-<pre><code class="language-aa">foo
-</code></pre>
-```
 
 Closing code fences cannot have [info strings](https://github.github.com/gfm/#info-string):  
-[Example 115](https://github.github.com/gfm/#example-115)  
-
-    ```
-    ``` aaa
-    ```
-
-   
-
-    <pre><code>``` aaa
-    </code></pre>
+<Example :index="$page.frontmatter.start++"/>

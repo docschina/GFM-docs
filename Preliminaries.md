@@ -39,15 +39,9 @@ A [punctuation character](https://github.github.com/gfm/#punctuation-character)
 
 Tabs in lines are not expanded to [spaces](https://github.github.com/gfm/#space). However, in contexts where whitespace helps to define block structure, tabs behave as if they were replaced by spaces with a tab stop of 4 characters.  
 
-Thus, for example, a tab can be used instead of four spaces in an indented code block. (Note, however, that internal tabs are passed through as literal tabs, not expanded to spaces.)  
-[Example 1](https://github.github.com/gfm/#example-1)  
+Thus, for example, a tab can be used instead of four spaces in an indented code block. (Note, however, that internal tabs are passed through as literal tabs, not expanded to spaces.) 
 
-    →foo→baz→→bim
-
-   
-
-    <pre><code>foo→baz→→bim
-    </code></pre>
+<Example :index="1"/>   
 
 [Example 2](https://github.github.com/gfm/#example-2)  
 

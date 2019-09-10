@@ -32,11 +32,12 @@ module.exports = {
         nav: require('./nav/zh'),
         // sidebar: require('./sidebar/zh'),
       }
-    }
+    },
+    $examples: require('./examples')
   },
   head: [
     ['script', {
       src: `/js/baidu.js`,
     }],
-  ],
+  ]
 }

@@ -1,3 +1,4 @@
+{{($page.frontmatter.start = 632) ? null : null}}
 ### Raw HTML
 
 Text between `<` and `>` that looks like an HTML tag is parsed as a raw HTML tag and will be rendered in HTML without escaping. Tag and attribute names are not limited to current HTML tags, so custom tags (and even, say, DocBook tags) may be used.  
@@ -33,203 +34,63 @@ A [CDATA section](https://github.github.com/gfm/#cdata-section) consists of th
 An [HTML tag](https://github.github.com/gfm/#html-tag) consists of an [open tag](https://github.github.com/gfm/#open-tag), a [closing tag](https://github.github.com/gfm/#closing-tag), an [HTML comment](https://github.github.com/gfm/#html-comment), a [processing instruction](https://github.github.com/gfm/#processing-instruction), a [declaration](https://github.github.com/gfm/#declaration), or a [CDATA section](https://github.github.com/gfm/#cdata-section).  
 
 Here are some simple open tags:  
-[Example 610](https://github.github.com/gfm/#example-610)  
+<Example :index="$page.frontmatter.start++"/>
 
-    <a><bab><c2c>
-
-   
-
-    <p><a><bab><c2c></p>
-
-Empty elements:  
-[Example 611](https://github.github.com/gfm/#example-611)  
-
-    <a/><b2/>
-
-   
-
-    <p><a/><b2/></p>
+<Example :index="$page.frontmatter.start++"/>
 
 [Whitespace](https://github.github.com/gfm/#whitespace) is allowed:  
-[Example 612](https://github.github.com/gfm/#example-612)  
-
-    <a  /><b2
-    data="foo" >
-
-   
-
-    <p><a  /><b2
-    data="foo" ></p>
+<Example :index="$page.frontmatter.start++"/>
 
 With attributes:  
-[Example 613](https://github.github.com/gfm/#example-613)  
+<Example :index="$page.frontmatter.start++"/>
 
-    <a foo="bar" bam = 'baz <em>"</em>'
-    _boolean zoop:33=zoop:33 />
-
-   
-
-    <p><a foo="bar" bam = 'baz <em>"</em>'
-    _boolean zoop:33=zoop:33 /></p>
+<Example :index="$page.frontmatter.start++"/>
 
 Custom tag names can be used:  
-[Example 614](https://github.github.com/gfm/#example-614)  
-
-    Foo <responsive-image src="foo.jpg" />
-
-   
-
-    <p>Foo <responsive-image src="foo.jpg" /></p>
+<Example :index="$page.frontmatter.start++"/>
 
 Illegal tag names, not parsed as HTML:  
-[Example 615](https://github.github.com/gfm/#example-615)  
-
-    <33> <__>
-
-   
-
-    <p>&lt;33&gt; &lt;__&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Illegal attribute names:  
-[Example 616](https://github.github.com/gfm/#example-616)  
-
-    <a h*#ref="hi">
-
-   
-
-    <p>&lt;a h*#ref=&quot;hi&quot;&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Illegal attribute values:  
-[Example 617](https://github.github.com/gfm/#example-617)  
-
-    <a href="hi'> <a href=hi'>
-
-   
-
-    <p>&lt;a href=&quot;hi'&gt; &lt;a href=hi'&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Illegal [whitespace](https://github.github.com/gfm/#whitespace):  
-[Example 618](https://github.github.com/gfm/#example-618)  
-
-    < a><
-    foo><bar/ >
-    <foo bar=baz
-    bim!bop />
-
-   
-
-    <p>&lt; a&gt;&lt;
-    foo&gt;&lt;bar/ &gt;
-    &lt;foo bar=baz
-    bim!bop /&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Missing [whitespace](https://github.github.com/gfm/#whitespace):  
-[Example 619](https://github.github.com/gfm/#example-619)  
-
-    <a href='bar'title=title>
-
-   
-
-    <p>&lt;a href='bar'title=title&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Closing tags:  
-[Example 620](https://github.github.com/gfm/#example-620)  
-
-    </a></foo >
-
-   
-
-    <p></a></foo ></p>
+<Example :index="$page.frontmatter.start++"/>
 
 Illegal attributes in closing tag:  
-[Example 621](https://github.github.com/gfm/#example-621)  
-
-    </a href="foo">
-
-   
-
-    <p>&lt;/a href=&quot;foo&quot;&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Comments:  
-[Example 622](https://github.github.com/gfm/#example-622)  
+<Example :index="$page.frontmatter.start++"/>
 
-    foo <!-- this is a
-    comment - with hyphen -->
-
-   
-
-    <p>foo <!-- this is a
-    comment - with hyphen --></p>
-
-[Example 623](https://github.github.com/gfm/#example-623)  
-
-    foo <!-- not a comment -- two hyphens -->
-
-   
-
-    <p>foo &lt;!-- not a comment -- two hyphens --&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Not comments:  
-[Example 624](https://github.github.com/gfm/#example-624)  
-
-    foo <!--> foo -->
-    
-    foo <!-- foo--->
-
-   
-
-    <p>foo &lt;!--&gt; foo --&gt;</p>
-    <p>foo &lt;!-- foo---&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Processing instructions:  
-[Example 625](https://github.github.com/gfm/#example-625)  
-
-    foo <?php echo $a; ?>
-
-   
-
-    <p>foo <?php echo $a; ?></p>
+<Example :index="$page.frontmatter.start++"/>
 
 Declarations:  
-[Example 626](https://github.github.com/gfm/#example-626)  
-
-    foo <!ELEMENT br EMPTY>
-
-   
-
-    <p>foo <!ELEMENT br EMPTY></p>
+<Example :index="$page.frontmatter.start++"/>
 
 CDATA sections:  
-[Example 627](https://github.github.com/gfm/#example-627)  
-
-    foo <![CDATA[>&<]]>
-
-   
-
-    <p>foo <![CDATA[>&<]]></p>
+<Example :index="$page.frontmatter.start++"/>
 
 Entity and numeric character references are preserved in HTML attributes:  
-[Example 628](https://github.github.com/gfm/#example-628)  
-
-    foo <a href="&ouml;">
-
-   
-
-    <p>foo <a href="&ouml;"></p>
+<Example :index="$page.frontmatter.start++"/>
 
 Backslash escapes do not work in HTML attributes:  
-[Example 629](https://github.github.com/gfm/#example-629)  
+<Example :index="$page.frontmatter.start++"/>
 
-    foo <a href="\*">
-
-   
-
-    <p>foo <a href="\*"></p>
-
-[Example 630](https://github.github.com/gfm/#example-630)  
-
-    <a href="\"">
-
-   
-
-    <p>&lt;a href=&quot;&quot;&quot;&gt;</p>
+<Example :index="$page.frontmatter.start++"/>

@@ -72,6 +72,7 @@
     @media (min-width: 768px){
         table td {
             min-width: 200px;
+            width: 33.3333%;
         }
     }
 </style>

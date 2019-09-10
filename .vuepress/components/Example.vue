@@ -1,9 +1,28 @@
 <template>
     <div>
         <p>Example {{this.index}}</p>
-        <div class="language-md" v-html="mdCode"/>
-        <div class="language-html" v-html="htmlCode"/>
-        <div v-html="this.example.html"/>
+        <table>
+            <thead>
+            <tr>
+                <th>Markdown</th>
+                <th>HTML</th>
+                <th>Demo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                <div class="language-md" v-html="mdCode"/>
+                </td>
+                <td>
+                <div class="language-html" v-html="htmlCode"/>
+                </td>
+                <td>
+                <div v-html="this.example.html"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -43,7 +62,14 @@
     },
     // mounted() {
     //   console.log('$site', this.$site)
-    //   console.log('key', this.index)
+    //   console.log('$page', this.$page)
     // }
   }
 </script>
+<style>
+    @media (min-width: 768px){
+        table td {
+            min-width: 200px;
+        }
+    }
+</style>

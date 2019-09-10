@@ -18,7 +18,8 @@
                 <div class="language-html" v-html="htmlCode"/>
                 </td>
                 <td>
-                <div v-html="this.example.html"/>
+<!--                <div v-html="this.example.html"/>-->
+                    <iframe width="100%" style="border: none" ref="demo"></iframe>
                 </td>
             </tr>
             </tbody>
@@ -60,10 +61,11 @@
     methods: {
       renderMd: (str, info) => md.render(`~~~~~~~~~~${info}\n${str}~~~~~~~~~~`)
     },
-    // mounted() {
-    //   console.log('$site', this.$site)
-    //   console.log('$page', this.$page)
-    // }
+    mounted() {
+      // console.log('$site', this.$site)
+      // console.log('$page', this.$page)
+      this.$refs.demo.contentDocument.write(this.example.html)
+    }
   }
 </script>
 <style>

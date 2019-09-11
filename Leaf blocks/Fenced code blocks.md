@@ -89,6 +89,5 @@ Although this spec doesn't mandate any particular treatment of the info string, 
 
 <Example :index="$page.frontmatter.start++"/>
 
-
 Closing code fences cannot have [info strings](https://github.github.com/gfm/#info-string):  
 <Example :index="$page.frontmatter.start++"/>

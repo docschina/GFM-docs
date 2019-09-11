@@ -36,14 +36,13 @@ An [HTML tag](https://github.github.com/gfm/#html-tag) consists of an [open t
 Here are some simple open tags:  
 <Example :index="$page.frontmatter.start++"/>
 
+Empty elements:
 <Example :index="$page.frontmatter.start++"/>
 
 [Whitespace](https://github.github.com/gfm/#whitespace) is allowed:  
 <Example :index="$page.frontmatter.start++"/>
 
 With attributes:  
-<Example :index="$page.frontmatter.start++"/>
-
 <Example :index="$page.frontmatter.start++"/>
 
 Custom tag names can be used:  

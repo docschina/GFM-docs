@@ -36,14 +36,13 @@
 这里是一些打开的标签：  
 <Example :index="$page.frontmatter.start++"/>
 
+空元素：    
 <Example :index="$page.frontmatter.start++"/>
 
 允许出现[空格](https://github.github.com/gfm/#whitespace) ：  
 <Example :index="$page.frontmatter.start++"/>
 
 带有属性值：  
-<Example :index="$page.frontmatter.start++"/>
-
 <Example :index="$page.frontmatter.start++"/>
 
 可以使用自定义标签名称：  

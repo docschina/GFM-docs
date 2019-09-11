@@ -80,8 +80,6 @@ Note that, because titles can often be parsed as destinations, if you try to omi
 
 Titles may be in single quotes, double quotes, or parentheses:  
 <Example :index="$page.frontmatter.start++"/>
-    <a href="/url" title="title">link</a>
-    <a href="/url" title="title">link</a></p>
 
 Backslash escapes and entity and numeric character references may be used in titles:  
 <Example :index="$page.frontmatter.start++"/>

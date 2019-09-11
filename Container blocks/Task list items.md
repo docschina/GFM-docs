@@ -9,6 +9,5 @@ If the character between the brackets is a whitespace character, the checkbox is
 This spec does not define how the checkbox elements are interacted with: in practice, implementors are free to render the checkboxes as disabled or inmutable elements, or they may dynamically handle dynamic interactions (i.e. checking, unchecking) in the final rendered document.  
 <Example :index="$page.frontmatter.start++"/>
 
-
 Task lists can be arbitrarily nested:  
 <Example :index="$page.frontmatter.start++"/>

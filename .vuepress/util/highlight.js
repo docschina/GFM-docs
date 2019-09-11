@@ -44,7 +44,7 @@ export default (str, lang) => {
   }
 
   if (!prism.languages[lang]) {
-    console.log('不存在的语言');
+    // console.log('不存在的语言');
   }
   if (prism.languages[lang]) {
     const code = prism.highlight(str, prism.languages[lang], lang)

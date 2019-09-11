@@ -15,7 +15,6 @@ Simple examples:
 The content of the header may span more than one line:  
 <Example :index="$page.frontmatter.start++"/>
 
-
 <Example :index="$page.frontmatter.start++"/>
 
 The underlining can be any length:  

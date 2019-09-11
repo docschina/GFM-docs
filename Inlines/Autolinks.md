@@ -10,10 +10,6 @@ Here are some valid autolinks:
 
 <Example :index="$page.frontmatter.start++"/>
 
-   
-
-    <p><a href="http://foo.bar.baz/test?q=hello&amp;id=22&amp;boolean">http://foo.bar.baz/test?q=hello&amp;id=22&amp;boolean</a></p>
-
 <Example :index="$page.frontmatter.start++"/>
 
 Uppercase is also fine:  

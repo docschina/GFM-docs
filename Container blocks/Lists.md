@@ -9,13 +9,10 @@ A list is [loose](https://github.github.com/gfm/#loose) if any of its constitu
 Changing the bullet or ordered list delimiter starts a new list:  
 <Example :index="$page.frontmatter.start++"/>
 
-
 <Example :index="$page.frontmatter.start++"/>
-
 
 In CommonMark, a list can interrupt a paragraph. That is, no blank line is needed to separate a paragraph from a following list:  
 <Example :index="$page.frontmatter.start++"/>
-
 
 `Markdown.pl` does not allow this, through fear of triggering a list via a numeral in a hard-wrapped line:  
 

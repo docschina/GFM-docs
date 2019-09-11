@@ -55,4 +55,3 @@ When both a thematic break and a list item are possible interpretations of a lin
 
 If you want a thematic break in a list item, use a different bullet:  
 <Example :index="$page.frontmatter.start++"/>
-

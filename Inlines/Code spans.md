@@ -10,9 +10,8 @@ This is a simple code span:
 
 <Example :index="$page.frontmatter.start++"/>
 
-Here two backticks are used, because the code contains a backtick.
-This example also illustrates stripping of a single leading and
-trailing space:    
+Here two backticks are used, because the code contains a backtick.    
+This example also illustrates stripping of a single leading and trailing space:    
 <Example :index="$page.frontmatter.start++"/>
 
 This example shows the motivation for stripping leading and trailing spaces:  

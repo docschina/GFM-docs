@@ -28,11 +28,9 @@ However, an empty link destination may be specified using angle brackets:
 
 <Example :index="$page.frontmatter.start++"/>
 
-
 The title must be separated from the link destination by whitespace:
 
 <Example :index="$page.frontmatter.start++"/>
-
 
 Both title and destination can contain backslash escapes and literal backslashes:  
 <Example :index="$page.frontmatter.start++"/>

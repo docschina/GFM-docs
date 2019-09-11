@@ -10,10 +10,8 @@ Backslashes before other characters are treated as literal backslashes:
 Escaped characters are treated as regular characters and do not have their usual Markdown meanings:  
 <Example :index="$page.frontmatter.start++"/>
 
-
 If a backslash is itself escaped, the following character is not:  
 <Example :index="$page.frontmatter.start++"/>
-
 
 A backslash at the end of the line is a [hard line break](https://github.github.com/gfm/#hard-line-break):  
 <Example :index="$page.frontmatter.start++"/>

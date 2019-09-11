@@ -67,7 +67,7 @@
       // console.log('$site', this.$site)
       // console.log('$page', this.$page)
       const html = `<div class="markdown-body">${this.example.html}</div>\n<link href="/css/github-markdown.css" rel="stylesheet"></link>`
-      this.$refs.demo.contentDocument.write(html);
+      this.$refs.demo && this.$refs.demo.contentDocument && this.$refs.demo.contentDocument.write(html);
     }
   }
 </script>

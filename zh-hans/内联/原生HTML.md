@@ -1,3 +1,4 @@
+{{($page.frontmatter.start = 632) ? null : null}}
 ### 原生 HTML
 
 看起来像 HTML 标签的`<`和`>`之间的文本被解析为原生 HTML 标签，并且将以 HTML 格式渲染而不会转义。标签和属性名称不限于当前 HTML 标签，因此可以使用自定义标签（甚至是 DocBook 标签）。  
@@ -33,203 +34,62 @@
 一个 [HTML 标签](https://github.github.com/gfm/#html-tag) 由[开始标签](https://github.github.com/gfm/#open-tag)，[闭合标签](https://github.github.com/gfm/#closing-tag)，[HTML 注释](https://github.github.com/gfm/#html-comment)，[处理指令](https://github.github.com/gfm/#processing-instruction)，[声明](https://github.github.com/gfm/#declaration)或 [CDATA 部分](https://github.github.com/gfm/#cdata-section)组成。
 
 这里是一些打开的标签：  
-[示例 610](https://github.github.com/gfm/#example-610)  
+<Example :index="$page.frontmatter.start++"/>
 
-    <a><bab><c2c>
-
-   
-
-    <p><a><bab><c2c></p>
-
-空元素：  
-[示例 611](https://github.github.com/gfm/#example-611)  
-
-    <a/><b2/>
-
-   
-
-    <p><a/><b2/></p>
+空元素：    
+<Example :index="$page.frontmatter.start++"/>
 
 允许出现[空格](https://github.github.com/gfm/#whitespace) ：  
-[示例 612](https://github.github.com/gfm/#example-612)  
-
-    <a  /><b2
-    data="foo" >
-
-   
-
-    <p><a  /><b2
-    data="foo" ></p>
+<Example :index="$page.frontmatter.start++"/>
 
 带有属性值：  
-[示例 613](https://github.github.com/gfm/#example-613)  
-
-    <a foo="bar" bam = 'baz <em>"</em>'
-    _boolean zoop:33=zoop:33 />
-
-   
-
-    <p><a foo="bar" bam = 'baz <em>"</em>'
-    _boolean zoop:33=zoop:33 /></p>
+<Example :index="$page.frontmatter.start++"/>
 
 可以使用自定义标签名称：  
-[示例 614](https://github.github.com/gfm/#example-614)  
-
-    Foo <responsive-image src="foo.jpg" />
-
-   
-
-    <p>Foo <responsive-image src="foo.jpg" /></p>
+<Example :index="$page.frontmatter.start++"/>
 
 无效标签名称，不会被解析为 HTML：  
-[示例 615](https://github.github.com/gfm/#example-615)  
+<Example :index="$page.frontmatter.start++"/>
 
-    <33> <__>
-
-   
-
-    <p>&lt;33&gt; &lt;__&gt;</p>
-
-无效的属性名:  
-[示例 616](https://github.github.com/gfm/#example-616)  
-
-    <a h*#ref="hi">
-
-   
-
-    <p>&lt;a h*#ref=&quot;hi&quot;&gt;</p>
+无效的属性名：  
+<Example :index="$page.frontmatter.start++"/>
 
 无效的属性值：  
-[示例 617](https://github.github.com/gfm/#example-617)  
-
-    <a href="hi'> <a href=hi'>
-
-   
-
-    <p>&lt;a href=&quot;hi'&gt; &lt;a href=hi'&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 无效的[空格](https://github.github.com/gfm/#whitespace)：  
-[示例 618](https://github.github.com/gfm/#example-618)  
-
-    < a><
-    foo><bar/ >
-    <foo bar=baz
-    bim!bop />
-
-   
-
-    <p>&lt; a&gt;&lt;
-    foo&gt;&lt;bar/ &gt;
-    &lt;foo bar=baz
-    bim!bop /&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 [空格](https://github.github.com/gfm/#whitespace)缺失：  
-[示例 619](https://github.github.com/gfm/#example-619)  
-
-    <a href='bar'title=title>
-
-   
-
-    <p>&lt;a href='bar'title=title&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 闭合标签:  
-[示例 620](https://github.github.com/gfm/#example-620)  
-
-    </a></foo >
-
-   
-
-    <p></a></foo ></p>
+<Example :index="$page.frontmatter.start++"/>
 
 闭合标签中属性无效：  
-[示例 621](https://github.github.com/gfm/#example-621)  
-
-    </a href="foo">
-
-   
-
-    <p>&lt;/a href=&quot;foo&quot;&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 注释：  
-[示例 622](https://github.github.com/gfm/#example-622)  
+<Example :index="$page.frontmatter.start++"/>
 
-    foo <!-- this is a
-    comment - with hyphen -->
-
-   
-
-    <p>foo <!-- this is a
-    comment - with hyphen --></p>
-
-[示例 623](https://github.github.com/gfm/#example-623)  
-
-    foo <!-- not a comment -- two hyphens -->
-
-   
-
-    <p>foo &lt;!-- not a comment -- two hyphens --&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 无效注释：  
-[示例 624](https://github.github.com/gfm/#example-624)  
-
-    foo <!--> foo -->
-    
-    foo <!-- foo--->
-
-   
-
-    <p>foo &lt;!--&gt; foo --&gt;</p>
-    <p>foo &lt;!-- foo---&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 处理指令：  
-[示例 625](https://github.github.com/gfm/#example-625)  
-
-    foo <?php echo $a; ?>
-
-   
-
-    <p>foo <?php echo $a; ?></p>
+<Example :index="$page.frontmatter.start++"/>
 
 声明：  
-[示例 626](https://github.github.com/gfm/#example-626)  
-
-    foo <!ELEMENT br EMPTY>
-
-   
-
-    <p>foo <!ELEMENT br EMPTY></p>
+<Example :index="$page.frontmatter.start++"/>
 
 CDATA 部分：  
-[示例 627](https://github.github.com/gfm/#example-627)  
-
-    foo <![CDATA[>&<]]>
-
-   
-
-    <p>foo <![CDATA[>&<]]></p>
+<Example :index="$page.frontmatter.start++"/>
 
 实体和数字字符引用保留在 HTML 属性中  
-[示例 628](https://github.github.com/gfm/#example-628)  
-
-    foo <a href="&ouml;">
-
-   
-
-    <p>foo <a href="&ouml;"></p>
+<Example :index="$page.frontmatter.start++"/>
 
 反斜杠转义在 HTML 属性中不起作用：  
-[示例 629](https://github.github.com/gfm/#example-629)  
+<Example :index="$page.frontmatter.start++"/>
 
-    foo <a href="\*">
-
-   
-
-    <p>foo <a href="\*"></p>
-
-[示例 630](https://github.github.com/gfm/#example-630)  
-
-    <a href="\"">
-
-   
-
-    <p>&lt;a href=&quot;&quot;&quot;&gt;</p>
+<Example :index="$page.frontmatter.start++"/>

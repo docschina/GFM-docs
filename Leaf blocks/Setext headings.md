@@ -1,4 +1,5 @@
 ### Setext headings
+{{($page.frontmatter.start = 50) ? null : null}}
 
 A [setext heading](https://github.github.com/gfm/#setext-heading) consists of one or more lines of text, each containing at least one [non-whitespace character](https://github.github.com/gfm/#non-whitespace-character), with no more than 3 spaces indentation, followed by a [setext heading underline](https://github.github.com/gfm/#setext-heading-underline). The lines of text must be such that, were they not followed by the setext heading underline, they would be interpreted as a paragraph: they cannot be interpretable as a [code fence](https://github.github.com/gfm/#code-fence), [ATX heading](https://github.github.com/gfm/#atx-headings), [block quote](https://github.github.com/gfm/#block-quotes), [thematic break](https://github.github.com/gfm/#thematic-breaks), [list item](https://github.github.com/gfm/#list-items), or [HTML block](https://github.github.com/gfm/#html-blocks).  
 
@@ -9,307 +10,67 @@ The heading is a level 1 heading if `=` characters are used in the [setext he
 In general, a setext heading need not be preceded or followed by a blank line. However, it cannot interrupt a paragraph, so when a setext heading comes after a paragraph, a blank line is needed between them.  
 
 Simple examples:  
-[Example 50](https://github.github.com/gfm/#example-50)  
-
-    Foo *bar*
-    =========
-    
-    Foo *bar*
-    ---------
-
-   
-
-    <h1>Foo <em>bar</em></h1>
-    <h2>Foo <em>bar</em></h2>
+<Example :index="$page.frontmatter.start++"/>
 
 The content of the header may span more than one line:  
-[Example 51](https://github.github.com/gfm/#example-51)  
+<Example :index="$page.frontmatter.start++"/>
 
-    Foo *bar
-    baz*
-    ====
-
-   
-
-    <h1>Foo <em>bar
-    baz</em></h1>
-
-
-[Example 51.5](https://github.github.com/gfm/#example-52.5)  
-The contents are the result of parsing the headings's raw
-content as inlines.  The heading's raw content is formed by
-concatenating the lines and removing initial and final
-whitespace.
-
-```
-  Foo *bar
-baz*→
-====
-```
-
-```
-<h1>Foo <em>bar
-baz</em></h1>
-```
+<Example :index="$page.frontmatter.start++"/>
 
 The underlining can be any length:  
-[Example 52](https://github.github.com/gfm/#example-52)  
-
-    Foo
-    -------------------------
-    
-    Foo
-    =
-
-   
-
-    <h2>Foo</h2>
-    <h1>Foo</h1>
+<Example :index="$page.frontmatter.start++"/>
 
 The heading content can be indented up to three spaces, and need not line up with the underlining:  
-[Example 53](https://github.github.com/gfm/#example-53)  
-
-       Foo
-    ---
-    
-      Foo
-    -----
-    
-      Foo
-      ===
-
-   
-
-    <h2>Foo</h2>
-    <h2>Foo</h2>
-    <h1>Foo</h1>
+<Example :index="$page.frontmatter.start++"/>
 
 Four spaces indent is too much:  
-[Example 54](https://github.github.com/gfm/#example-54)  
-
-        Foo
-        ---
-    
-        Foo
-    ---
-
-   
-
-    <pre><code>Foo
-    ---
-    
-    Foo
-    </code></pre>
-    <hr />
+<Example :index="$page.frontmatter.start++"/>
 
 The setext heading underline can be indented up to three spaces, and may have trailing spaces:  
-[Example 55](https://github.github.com/gfm/#example-55)  
-
-    Foo
-       ----
-
-   
-
-    <h2>Foo</h2>
+<Example :index="$page.frontmatter.start++"/>
 
 Four spaces is too much:  
-[Example 56](https://github.github.com/gfm/#example-56)  
-
-    Foo
-        ---
-
-   
-
-    <p>Foo
-    ---</p>
+<Example :index="$page.frontmatter.start++"/>
 
 The setext heading underline cannot contain internal spaces:  
-[Example 57](https://github.github.com/gfm/#example-57)  
-
-    Foo
-    = =
-    
-    Foo
-    --- -
-
-   
-
-    <p>Foo
-    = =</p>
-    <p>Foo</p>
-    <hr />
+<Example :index="$page.frontmatter.start++"/>
 
 Trailing spaces in the content line do not cause a line break:  
-[Example 58](https://github.github.com/gfm/#example-58)  
-
-    Foo  
-    -----
-
-   
-
-    <h2>Foo</h2>
+<Example :index="$page.frontmatter.start++"/>
 
 Nor does a backslash at the end:  
-[Example 59](https://github.github.com/gfm/#example-59)  
-
-    Foo\
-    ----
-
-   
-
-    <h2>Foo\</h2>
+<Example :index="$page.frontmatter.start++"/>
 
 Since indicators of block structure take precedence over indicators of inline structure, the following are setext headings:  
-[Example 60](https://github.github.com/gfm/#example-60)  
-
-    `Foo
-    ----
-    `
-    
-    <a title="a lot
-    ---
-    of dashes"/>
-
-   
-
-    <h2>`Foo</h2>
-    <p>`</p>
-    <h2>&lt;a title=&quot;a lot</h2>
-    <p>of dashes&quot;/&gt;</p>
+<Example :index="$page.frontmatter.start++"/>
 
 The setext heading underline cannot be a [lazy continuation line](https://github.github.com/gfm/#lazy-continuation-line) in a list item or block quote:  
-[Example 61](https://github.github.com/gfm/#example-61)  
+<Example :index="$page.frontmatter.start++"/>
 
-    > Foo
-    ---
+<Example :index="$page.frontmatter.start++"/>
 
-   
-
-    <blockquote>
-    <p>Foo</p>
-    </blockquote>
-    <hr />
-
-[Example 62](https://github.github.com/gfm/#example-62)  
-
-    > foo
-    bar
-    ===
-
-   
-
-    <blockquote>
-    <p>foo
-    bar
-    ===</p>
-    </blockquote>
-
-[Example 63](https://github.github.com/gfm/#example-63)  
-
-    - Foo
-    ---
-
-   
-
-    <ul>
-    <li>Foo</li>
-    </ul>
-    <hr />
+<Example :index="$page.frontmatter.start++"/>
 
 A blank line is needed between a paragraph and a following setext heading, since otherwise the paragraph becomes part of the heading’s content:  
-[Example 64](https://github.github.com/gfm/#example-64)  
-
-    Foo
-    Bar
-    ---
-
-   
-
-    <h2>Foo
-    Bar</h2>
+<Example :index="$page.frontmatter.start++"/>
 
 But in general a blank line is not required before or after setext headings:  
-[Example 65](https://github.github.com/gfm/#example-65)  
-
-    ---
-    Foo
-    ---
-    Bar
-    ---
-    Baz
-
-   
-
-    <hr />
-    <h2>Foo</h2>
-    <h2>Bar</h2>
-    <p>Baz</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Setext headings cannot be empty:  
-[Example 66](https://github.github.com/gfm/#example-66)  
-
-    
-    ====
-
-   
-
-    <p>====</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Setext heading text lines must not be interpretable as block constructs other than paragraphs. So, the line of dashes in these examples gets interpreted as a thematic break:  
-[Example 67](https://github.github.com/gfm/#example-67)  
+<Example :index="$page.frontmatter.start++"/>
 
-    ---
-    ---
+<Example :index="$page.frontmatter.start++"/>
 
-   
+<Example :index="$page.frontmatter.start++"/>
 
-    <hr />
-    <hr />
-
-[Example 68](https://github.github.com/gfm/#example-68)  
-
-    - foo
-    -----
-
-   
-
-    <ul>
-    <li>foo</li>
-    </ul>
-    <hr />
-
-[Example 69](https://github.github.com/gfm/#example-69)  
-
-        foo
-    ---
-
-   
-
-    <pre><code>foo
-    </code></pre>
-    <hr />
-
-[Example 70](https://github.github.com/gfm/#example-70)  
-
-    > foo
-    -----
-
-   
-
-    <blockquote>
-    <p>foo</p>
-    </blockquote>
-    <hr />
+<Example :index="$page.frontmatter.start++"/>
 
 If you want a heading with `> foo` as its literal text, you can use backslash escapes:  
-[Example 71](https://github.github.com/gfm/#example-71)  
-
-    \> foo
-    ------
-
-   
-
-    <h2>&gt; foo</h2>
+<Example :index="$page.frontmatter.start++"/>
 
 **Compatibility note:** Most existing Markdown implementations do not allow the text of setext headings to span multiple lines. But there is no consensus about how to interpret  
 
@@ -326,64 +87,14 @@ One can find four different interpretations:
 4.  heading “Foo bar”, paragraph “baz”
 
 We find interpretation 4 most natural, and interpretation 4 increases the expressive power of CommonMark, by allowing multiline headings. Authors who want interpretation 1 can put a blank line after the first paragraph:  
-[Example 72](https://github.github.com/gfm/#example-72)  
-
-    Foo
-    
-    bar
-    ---
-    baz
-
-   
-
-    <p>Foo</p>
-    <h2>bar</h2>
-    <p>baz</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Authors who want interpretation 2 can put blank lines around the thematic break,  
-[Example 73](https://github.github.com/gfm/#example-73)  
-
-    Foo
-    bar
-    
-    ---
-    
-    baz
-
-   
-
-    <p>Foo
-    bar</p>
-    <hr />
-    <p>baz</p>
+<Example :index="$page.frontmatter.start++"/>
 
 or use a thematic break that cannot count as a [setext heading underline](https://github.github.com/gfm/#setext-heading-underline), such as  
-[Example 74](https://github.github.com/gfm/#example-74)  
-
-    Foo
-    bar
-    * * *
-    baz
-
-   
-
-    <p>Foo
-    bar</p>
-    <hr />
-    <p>baz</p>
+<Example :index="$page.frontmatter.start++"/>
 
 Authors who want interpretation 3 can use backslash escapes:  
-[Example 75](https://github.github.com/gfm/#example-75)  
-
-    Foo
-    bar
-    \---
-    baz
-
-   
-
-    <p>Foo
-    bar
-    ---
-    baz</p>
+<Example :index="$page.frontmatter.start++"/>
 

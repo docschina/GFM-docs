@@ -54,4 +54,3 @@ ATX headings need not be separated from surrounding content by blank lines, and 
 
 ATX headings can be empty:  
 <Example :index="$page.frontmatter.start++"/>
-

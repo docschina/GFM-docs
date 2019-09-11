@@ -1,24 +1,23 @@
 <template>
     <div>
-        <p>Example {{this.index}}</p>
+        <p>{{isZh ? '示例' : 'Example'}} {{index}}</p>
         <table>
             <thead>
             <tr>
                 <th>Markdown</th>
                 <th>HTML</th>
-                <th>Demo</th>
+                <th>{{isZh ? '效果' : 'Demo'}}</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                <div class="language-md" v-html="mdCode"/>
+                    <div class="language-md" v-html="mdCode"/>
                 </td>
                 <td>
-                <div class="language-html" v-html="htmlCode"/>
+                    <div class="language-html" v-html="htmlCode"/>
                 </td>
                 <td>
-<!--                <div v-html="this.example.html"/>-->
                     <iframe width="100%" style="border: none" ref="demo"></iframe>
                 </td>
             </tr>
@@ -48,6 +47,9 @@
       },
     },
     computed: {
+      isZh: function () {
+        return this.$page.path.startsWith('/zh-hans/')
+      },
       example: function () {
         return this.$site.themeConfig.$examples[this.index - 1]
       },
@@ -69,7 +71,7 @@
   }
 </script>
 <style>
-    @media (min-width: 768px){
+    @media (min-width: 768px) {
         table td {
             min-width: 200px;
             width: 33.3333%;

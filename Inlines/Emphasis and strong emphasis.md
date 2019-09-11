@@ -266,10 +266,7 @@ The same condition ensures that the following cases are all strong emphasis nest
 
 <Example :index="$page.frontmatter.start++"/>
 
-When the lengths of the interior closing and opening
-delimiter runs are *both* multiples of 3, though,
-they can match to create emphasis:
-
+When the lengths of the interior closing and opening delimiter runs are *both* multiples of 3, though, they can match to create emphasis:    
 <Example :index="$page.frontmatter.start++"/>
 
 <Example :index="$page.frontmatter.start++"/>

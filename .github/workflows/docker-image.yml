@@ -28,13 +28,13 @@ jobs:
     - name: Fetch default.conf
       uses: valitydev/action-download-file@v1
       with:
-          url: https://raw.githubusercontent.com/lcxfs1991/docschina-deployment/main/stencil/default.conf
+          url: https://raw.githubusercontent.com/lcxfs1991/docschina-deployment/main/gfm/default.conf
           target-path: .
 
     - name: Fetch Dockerfile
       uses: valitydev/action-download-file@v1
       with:
-          url: https://raw.githubusercontent.com/lcxfs1991/docschina-deployment/main/stencil/Dockerfile
+          url: https://raw.githubusercontent.com/lcxfs1991/docschina-deployment/main/gfm/Dockerfile
           target-path: .
 
     - name: Setup Node
@@ -63,7 +63,7 @@ jobs:
         context: .
         push: true
         platforms: linux/amd64
-        tags: ccr.ccs.tencentyun.com/docschina/stencil:${{ env.BRANCH_NAME }}-${{ env.TIMESTAMP }}
+        tags: ccr.ccs.tencentyun.com/docschina/gfm:${{ env.BRANCH_NAME }}-${{ env.TIMESTAMP }}
 
     - name: Deployment
       uses: TencentCloud/cli-action@v1
@@ -71,5 +71,5 @@ jobs:
         secret_id: ${{ secrets.SECRET_ID }}
         secret_key: ${{ secrets.SECRET_KEY }}
         region: ${{ secrets.LIGHTHOUSE_REGION }}
-        commands: tat InvokeCommand --cli-unfold-argument --region ap-shanghai --CommandId cmd-boc4aaiw --InstanceIds lhins-nkwfootc --Parameters '{"deployment":"stencil","image":"ccr.ccs.tencentyun.com/docschina/stencil:${{ env.BRANCH_NAME }}-${{ env.TIMESTAMP }}"}'
+        commands: tat InvokeCommand --cli-unfold-argument --region ap-shanghai --CommandId cmd-boc4aaiw --InstanceIds lhins-nkwfootc --Parameters '{"deployment":"gfm","image":"ccr.ccs.tencentyun.com/docschina/gfm:${{ env.BRANCH_NAME }}-${{ env.TIMESTAMP }}"}'
         output_format: json
